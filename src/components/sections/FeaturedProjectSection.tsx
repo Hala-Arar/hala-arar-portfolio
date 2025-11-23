@@ -23,13 +23,15 @@ export const FeaturedProjectSection = () => {
           {/* Content */}
           <div className="space-y-8">
             <div className={`space-y-4 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-              {/* Logo Placeholder */}
-              <div className="w-24 h-24 bg-surface-dark border-2 border-indigo rounded-xl flex items-center justify-center mb-4">
-                <span className="text-indigo text-xs font-semibold">LOGO</span>
+              {/* Logo and Project Name */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-surface-dark border-2 border-indigo rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-indigo text-xs font-semibold">LOGO</span>
+                </div>
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
+                  SOORENA
+                </h2>
               </div>
-              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
-                SOORENA
-              </h2>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium text-[hsl(var(--text-dark-secondary))]">
                 Autoregulatory Mechanism Detection in Biomedical Literature
               </h3>
