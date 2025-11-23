@@ -1,5 +1,6 @@
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { MapPin, GraduationCap } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface TimelineEntry {
   side: 'left' | 'right';
@@ -109,21 +110,34 @@ const education = [
   },
 ];
 
-// Helper to extract unique years from timeline
-const extractYears = (timeline: TimelineEntry[]): number[] => {
-  const years = new Set<number>();
-  timeline.forEach(entry => {
-    const matches = entry.period.match(/\d{4}/g);
-    if (matches) {
-      matches.forEach(year => years.add(parseInt(year)));
-    }
-  });
-  return Array.from(years).sort((a, b) => b - a);
-};
 
 export const JourneySection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
-  const years = extractYears(timeline);
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    
+    timeline.forEach((_, index) => {
+      const element = document.querySelector(`[data-timeline-card="${index}"]`);
+      if (element) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setVisibleCards((prev) => new Set(prev).add(index));
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        observer.observe(element);
+        observers.push(observer);
+      }
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
 
   return (
     <section
@@ -142,33 +156,20 @@ export const JourneySection = () => {
 
         {/* Timeline */}
         <div className="max-w-5xl mx-auto relative">
-          {/* Vertical Line with Year Markers */}
+          {/* Vertical Line */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo via-indigo/50 to-indigo -translate-x-1/2 shadow-lg" 
             style={{ boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)' }} 
-          >
-            {/* Year Markers */}
-            {years.map((year, idx) => (
-              <div 
-                key={year}
-                className="absolute left-1/2 -translate-x-1/2"
-                style={{ top: `${(idx / (years.length - 1)) * 95}%` }}
-              >
-                <div className="px-4 py-1.5 bg-indigo text-white rounded-full text-sm font-bold shadow-lg">
-                  {year}
-                </div>
-              </div>
-            ))}
-          </div>
+          />
 
           {/* Timeline Entries */}
           <div className="space-y-20 lg:space-y-24">
             {timeline.map((entry, index) => {
-              const staggerClass = `stagger-${Math.min((index % 8) + 1, 8)}`;
               return (
                 <div
                   key={index}
+                  data-timeline-card={index}
                   className={`relative ${
-                    isVisible ? `animate-fade-up ${staggerClass}` : 'opacity-0'
+                    visibleCards.has(index) ? 'animate-slide-in-fade' : 'opacity-0'
                   }`}
                 >
                   {/* Connection dot on timeline */}
@@ -178,7 +179,7 @@ export const JourneySection = () => {
 
                   {entry.side === 'left' ? (
                     // LEFT SIDE ENTRY: Logo on left, card on right of center
-                    <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-center lg:pr-[50%]">
+                    <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-center lg:pr-[calc(50%+3rem)]">
                       {/* Logo on LEFT side */}
                       <div className="w-16 h-16 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-3xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
                         {entry.logo}
@@ -206,7 +207,7 @@ export const JourneySection = () => {
                     </div>
                   ) : (
                     // RIGHT SIDE ENTRY: Card on left of center, logo on right
-                    <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center lg:pl-[50%]">
+                    <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center lg:pl-[calc(50%+3rem)]">
                       {/* Card content */}
                       <div className="bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
                         <h3 className="text-xl font-bold text-white mb-1">
