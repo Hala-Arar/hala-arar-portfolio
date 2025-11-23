@@ -11,6 +11,12 @@ interface TimelineEntry {
   logo: string;
 }
 
+interface TimelineGroup {
+  type: 'single' | 'concurrent';
+  entries: TimelineEntry[];
+  dotLabel?: string;
+}
+
 const timeline: TimelineEntry[] = [
   {
     side: 'right',
@@ -109,8 +115,39 @@ const education = [
   },
 ];
 
+// Function to detect concurrent timeline entries
+const groupTimelineEntries = (entries: TimelineEntry[]): TimelineGroup[] => {
+  const groups: TimelineGroup[] = [];
+  const processed = new Set<number>();
+
+  entries.forEach((entry, index) => {
+    if (processed.has(index)) return;
+
+    // Check for concurrent entries (Dental Assistant & Lab Technician)
+    if (index === 2) {
+      // Dental Assistant (Jul 2022 – Apr 2024) overlaps with Lab Technician (Sep 2022 – Apr 2023)
+      groups.push({
+        type: 'concurrent',
+        entries: [entries[2], entries[3]], // Dental Assistant and Lab Technician
+        dotLabel: 'Sep 2022 – Apr 2023',
+      });
+      processed.add(2);
+      processed.add(3);
+    } else {
+      groups.push({
+        type: 'single',
+        entries: [entry],
+      });
+      processed.add(index);
+    }
+  });
+
+  return groups;
+};
+
 export const JourneySection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
+  const timelineGroups = groupTimelineEntries(timeline);
 
   return (
     <section
@@ -135,18 +172,79 @@ export const JourneySection = () => {
           />
 
           {/* Timeline Entries */}
-          <div className="space-y-12 lg:space-y-16">
-            {timeline.map((entry, index) => {
-              const staggerClass = `stagger-${Math.min((index % 8) + 1, 8)}`;
+          <div className="space-y-20 lg:space-y-28">
+            {timelineGroups.map((group, groupIndex) => {
+              const staggerClass = `stagger-${Math.min((groupIndex % 8) + 1, 8)}`;
+              
+              if (group.type === 'concurrent') {
+                // Render concurrent experiences side-by-side
+                return (
+                  <div
+                    key={`group-${groupIndex}`}
+                    className={`relative ${
+                      isVisible ? `animate-fade-up ${staggerClass}` : 'opacity-0'
+                    }`}
+                  >
+                    {/* Small Dot on Center Line */}
+                    <div className="hidden lg:flex absolute left-1/2 top-0 -translate-x-1/2 w-3 h-3 rounded-full bg-indigo shadow-lg z-10" 
+                      style={{ boxShadow: '0 0 15px rgba(99, 102, 241, 0.6)' }} 
+                    />
+                    
+                    {/* Concurrent Date Label */}
+                    {group.dotLabel && (
+                      <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 -top-8 px-3 py-1 bg-indigo/20 border border-indigo rounded-full text-xs font-bold text-indigo text-center whitespace-nowrap">
+                        {group.dotLabel}
+                      </div>
+                    )}
+
+                    {/* Side-by-Side Cards */}
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                      {group.entries.map((entry, entryIndex) => (
+                        <div key={entryIndex} className={entryIndex === 0 ? 'lg:pr-8' : 'lg:pl-8'}>
+                          <div className="bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                            {/* Logo and Role */}
+                            <div className="flex items-start gap-3 mb-3">
+                              <div className="w-10 h-10 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-2xl flex-shrink-0">
+                                {entry.logo}
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <h3 className="text-lg font-bold text-white mb-1">
+                                  {entry.role}
+                                </h3>
+                                <div className="text-indigo font-semibold text-sm mb-1">
+                                  {entry.company}
+                                </div>
+                                <div className="text-xs text-gray-400 mb-2">
+                                  {entry.period}
+                                </div>
+                                <div className="flex items-center gap-1 text-xs text-[hsl(var(--text-dark-secondary))] mb-3">
+                                  <MapPin size={12} />
+                                  <span>{entry.location}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
+                              {entry.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              // Render single entry with zigzag layout
+              const entry = group.entries[0];
               return (
                 <div
-                  key={index}
+                  key={`group-${groupIndex}`}
                   className={`relative ${
                     isVisible ? `animate-fade-up ${staggerClass}` : 'opacity-0'
                   }`}
                 >
                   <div
-                    className={`grid lg:grid-cols-2 gap-8 items-center ${
+                    className={`grid lg:grid-cols-2 gap-8 items-start ${
                       entry.side === 'right' ? 'lg:flex-row-reverse' : ''
                     }`}
                   >
@@ -154,15 +252,26 @@ export const JourneySection = () => {
                     {entry.side === 'left' ? (
                       <div className="lg:text-right lg:pr-12">
                         <div className="inline-block lg:inline bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
-                          <h3 className="text-xl font-bold text-white mb-1">
-                            {entry.role}
-                          </h3>
-                          <div className="text-indigo font-semibold mb-1">
-                            {entry.company}
-                          </div>
-                          <div className="flex items-center lg:justify-end gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
-                            <MapPin size={14} />
-                            <span>{entry.location}</span>
+                          {/* Logo and Role */}
+                          <div className={`flex items-start gap-3 mb-3 ${entry.side === 'left' ? 'lg:flex-row-reverse lg:text-right' : ''}`}>
+                            <div className="w-10 h-10 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-2xl flex-shrink-0">
+                              {entry.logo}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-lg font-bold text-white mb-1">
+                                {entry.role}
+                              </h3>
+                              <div className="text-indigo font-semibold text-sm mb-1">
+                                {entry.company}
+                              </div>
+                              <div className="text-xs text-gray-400 mb-2">
+                                {entry.period}
+                              </div>
+                              <div className={`flex items-center gap-1 text-xs text-[hsl(var(--text-dark-secondary))] mb-3 ${entry.side === 'left' ? 'lg:justify-end' : ''}`}>
+                                <MapPin size={12} />
+                                <span>{entry.location}</span>
+                              </div>
+                            </div>
                           </div>
                           <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
                             {entry.description}
@@ -173,24 +282,35 @@ export const JourneySection = () => {
                       <div className="hidden lg:block" />
                     )}
 
-                    {/* Logo (Center on large screens) */}
-                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-24 h-24 rounded-full bg-surface-dark border-4 border-indigo items-center justify-center text-5xl glow-indigo-strong z-10 transition-transform duration-300 hover:scale-110">
-                      {entry.logo}
-                    </div>
+                    {/* Small Dot on Center Line */}
+                    <div className="hidden lg:flex absolute left-1/2 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-indigo shadow-lg z-10" 
+                      style={{ boxShadow: '0 0 15px rgba(99, 102, 241, 0.6)' }} 
+                    />
 
                     {/* Right Side */}
                     {entry.side === 'right' ? (
                       <div className="lg:pl-12">
                         <div className="inline-block lg:inline bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
-                          <h3 className="text-xl font-bold text-white mb-1">
-                            {entry.role}
-                          </h3>
-                          <div className="text-indigo font-semibold mb-1">
-                            {entry.company}
-                          </div>
-                          <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
-                            <MapPin size={14} />
-                            <span>{entry.location}</span>
+                          {/* Logo and Role */}
+                          <div className="flex items-start gap-3 mb-3">
+                            <div className="w-10 h-10 rounded-lg bg-gray-800/50 border border-gray-700 flex items-center justify-center text-2xl flex-shrink-0">
+                              {entry.logo}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="text-lg font-bold text-white mb-1">
+                                {entry.role}
+                              </h3>
+                              <div className="text-indigo font-semibold text-sm mb-1">
+                                {entry.company}
+                              </div>
+                              <div className="text-xs text-gray-400 mb-2">
+                                {entry.period}
+                              </div>
+                              <div className="flex items-center gap-1 text-xs text-[hsl(var(--text-dark-secondary))] mb-3">
+                                <MapPin size={12} />
+                                <span>{entry.location}</span>
+                              </div>
+                            </div>
                           </div>
                           <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
                             {entry.description}
@@ -200,11 +320,6 @@ export const JourneySection = () => {
                     ) : (
                       <div className="hidden lg:block" />
                     )}
-
-                    {/* Date on timeline */}
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:-top-8 px-3 py-1 bg-indigo/20 border border-indigo rounded-full text-sm font-bold text-indigo text-center whitespace-nowrap">
-                      {entry.period}
-                    </div>
                   </div>
                 </div>
               );
