@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Menu, X } from 'lucide-react';
+import { useScrollDirection } from '@/hooks/useScrollDirection';
 
 interface MinimalNavProps {
   activeSection: string;
@@ -9,6 +10,7 @@ interface MinimalNavProps {
 export const MinimalNav = ({ activeSection }: MinimalNavProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const scrollDirection = useScrollDirection();
 
   // Determine if we're on a dark or light section
   const darkSections = ['hero', 'soorena', 'journey', 'contact'];
@@ -33,10 +35,14 @@ export const MinimalNav = ({ activeSection }: MinimalNavProps) => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const showNav = scrollDirection === 'up' || window.scrollY < 100;
+
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${bgClass} ${textColor}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${bgClass} ${textColor} ${
+          showNav ? 'translate-y-0' : '-translate-y-full'
+        }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
@@ -54,7 +60,7 @@ export const MinimalNav = ({ activeSection }: MinimalNavProps) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium transition-smooth hover:text-violet opacity-80 hover:opacity-100"
+                  className="text-sm font-medium transition-smooth hover:text-indigo opacity-80 hover:opacity-100"
                 >
                   {link.name}
                 </a>
@@ -62,7 +68,7 @@ export const MinimalNav = ({ activeSection }: MinimalNavProps) => {
               <Button
                 variant="outline"
                 size="sm"
-                className="border-violet text-violet hover:bg-violet hover:text-white glow-violet"
+                className="border-indigo text-indigo hover:bg-indigo hover:text-white glow-indigo"
                 asChild
               >
                 <a href="#" download>
@@ -94,7 +100,7 @@ export const MinimalNav = ({ activeSection }: MinimalNavProps) => {
             <a
               key={link.name}
               href={link.href}
-              className="text-2xl font-bold text-white hover:text-violet transition-smooth"
+              className="text-2xl font-bold text-white hover:text-indigo transition-smooth"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}
@@ -103,7 +109,7 @@ export const MinimalNav = ({ activeSection }: MinimalNavProps) => {
           <Button
             variant="outline"
             size="lg"
-            className="border-violet text-violet hover:bg-violet hover:text-white glow-violet"
+            className="border-indigo text-indigo hover:bg-indigo hover:text-white glow-indigo"
             asChild
           >
             <a href="#" download>

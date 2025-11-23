@@ -21,8 +21,29 @@ export const HeroSection = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+          {/* Photo - 40% - Shows first on mobile, right on desktop */}
+          <div className={`lg:col-span-2 flex justify-center lg:order-2 ${isVisible ? 'animate-scale-in stagger-2' : 'opacity-0'}`}>
+            <div className="relative">
+              {/* Glow background */}
+              <div className="absolute inset-0 bg-indigo/30 rounded-2xl blur-3xl scale-110" />
+              {/* Photo */}
+              <img
+                src={portraitImage}
+                alt="Hala Arar"
+                className="relative rounded-2xl shadow-2xl w-full max-w-md transition-smooth hover:scale-105"
+                style={{ transform: 'perspective(1000px) rotateY(0deg)' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'perspective(1000px) rotateY(5deg)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'perspective(1000px) rotateY(0deg)';
+                }}
+              />
+            </div>
+          </div>
+
           {/* Text Content - 60% */}
-          <div className="lg:col-span-3 space-y-8">
+          <div className="lg:col-span-3 lg:order-1 space-y-8">
             <div className={`space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
                 HALA ARAR
@@ -39,7 +60,7 @@ export const HeroSection = () => {
             <div className={`flex space-x-6 ${isVisible ? 'animate-fade-up stagger-3' : 'opacity-0'}`}>
               <a
                 href="mailto:hala.arar.02@gmail.com"
-                className="text-white hover:text-violet transition-smooth"
+                className="text-white hover:text-indigo transition-smooth"
                 aria-label="Email"
               >
                 <Mail size={24} />
@@ -48,7 +69,7 @@ export const HeroSection = () => {
                 href="https://github.com/halaarar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-violet transition-smooth"
+                className="text-white hover:text-indigo transition-smooth"
                 aria-label="GitHub"
               >
                 <Github size={24} />
@@ -57,7 +78,7 @@ export const HeroSection = () => {
                 href="https://linkedin.com/in/hala-arar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-violet transition-smooth"
+                className="text-white hover:text-indigo transition-smooth"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={24} />
@@ -76,7 +97,7 @@ export const HeroSection = () => {
               </Button>
               <Button
                 size="lg"
-                className="bg-violet text-white hover:bg-violet/90 glow-violet-strong transition-smooth text-base"
+                className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth text-base"
                 asChild
               >
                 <a href="#" download>
@@ -87,26 +108,6 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Photo - 40% */}
-          <div className={`lg:col-span-2 flex justify-center ${isVisible ? 'animate-scale-in stagger-2' : 'opacity-0'}`}>
-            <div className="relative">
-              {/* Glow background */}
-              <div className="absolute inset-0 bg-violet/30 rounded-2xl blur-3xl scale-110" />
-              {/* Photo */}
-              <img
-                src={portraitImage}
-                alt="Hala Arar"
-                className="relative rounded-2xl shadow-2xl w-full max-w-md transition-smooth hover:scale-105"
-                style={{ transform: 'perspective(1000px) rotateY(0deg)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'perspective(1000px) rotateY(5deg)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'perspective(1000px) rotateY(0deg)';
-                }}
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>

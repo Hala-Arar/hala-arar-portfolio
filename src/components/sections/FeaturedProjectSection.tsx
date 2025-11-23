@@ -23,6 +23,10 @@ export const FeaturedProjectSection = () => {
           {/* Content */}
           <div className="space-y-8">
             <div className={`space-y-4 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+              {/* Logo Placeholder */}
+              <div className="w-24 h-24 bg-surface-dark border-2 border-indigo rounded-xl flex items-center justify-center mb-4">
+                <span className="text-indigo text-xs font-semibold">LOGO</span>
+              </div>
               <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
                 SOORENA
               </h2>
@@ -44,7 +48,7 @@ export const FeaturedProjectSection = () => {
             >
               {metrics.map((metric, index) => (
                 <div key={index} className="space-y-1">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-violet">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-indigo">
                     {metric.value}
                   </div>
                   <div className="text-sm sm:text-base text-[hsl(var(--text-dark-secondary))]">
@@ -62,7 +66,7 @@ export const FeaturedProjectSection = () => {
             >
               <Button
                 variant="outline"
-                className="border-violet text-violet hover:bg-violet hover:text-white"
+                className="border-indigo text-indigo hover:bg-indigo hover:text-white"
                 asChild
               >
                 <a
@@ -76,7 +80,7 @@ export const FeaturedProjectSection = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-violet text-violet hover:bg-violet hover:text-white"
+                className="border-indigo text-indigo hover:bg-indigo hover:text-white"
                 asChild
               >
                 <a href="#" target="_blank" rel="noopener noreferrer">
@@ -86,7 +90,7 @@ export const FeaturedProjectSection = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-violet text-violet hover:bg-violet hover:text-white"
+                className="border-indigo text-indigo hover:bg-indigo hover:text-white"
                 asChild
               >
                 <a href="#" target="_blank" rel="noopener noreferrer">
@@ -103,7 +107,7 @@ export const FeaturedProjectSection = () => {
           >
             <div className="relative">
               {/* Glow */}
-              <div className="absolute inset-0 bg-violet/20 rounded-lg blur-2xl" />
+              <div className="absolute inset-0 bg-indigo/20 rounded-lg blur-2xl" />
               {/* Browser Mockup */}
               <div className="relative bg-surface-dark rounded-lg overflow-hidden shadow-2xl border border-gray-800">
                 {/* Browser Chrome */}

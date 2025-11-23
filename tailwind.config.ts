@@ -51,7 +51,7 @@ export default {
         "section-light": "hsl(var(--section-light))",
         "surface-dark": "hsl(var(--surface-dark))",
         "surface-light": "hsl(var(--surface-light))",
-        "violet": "hsl(var(--accent-violet))",
+        "indigo": "hsl(var(--accent-indigo))",
       },
       fontFamily: {
         sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', 'Inter', 'system-ui', 'sans-serif'],
@@ -72,11 +72,11 @@ export default {
           to: { height: "0" },
         },
         "fade-up": {
-          from: { opacity: "0", transform: "translateY(30px)" },
+          from: { opacity: "0", transform: "translateY(80px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "float-in": {
-          from: { opacity: "0", transform: "scale(0.9) translateY(20px)" },
+          from: { opacity: "0", transform: "scale(0.8) translateY(50px)" },
           to: { opacity: "1", transform: "scale(1) translateY(0)" },
         },
         "modal-slide-up": {
@@ -84,12 +84,12 @@ export default {
           to: { transform: "translateY(0)" },
         },
         "scale-in": {
-          from: { opacity: "0", transform: "scale(0.95)" },
+          from: { opacity: "0", transform: "scale(0.9)" },
           to: { opacity: "1", transform: "scale(1)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(139, 92, 246, 0.3)" },
-          "50%": { boxShadow: "0 0 40px rgba(139, 92, 246, 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(99, 102, 241, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(99, 102, 241, 0.6)" },
         },
       },
       animation: {

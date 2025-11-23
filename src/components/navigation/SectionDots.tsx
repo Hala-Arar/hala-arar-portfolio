@@ -21,10 +21,10 @@ export const SectionDots = ({ sections, activeSection }: SectionDotsProps) => {
           aria-label={`Go to ${section.label}`}
         >
           <div
-            className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full border-2 transition-all duration-300 cursor-pointer hover:scale-125 ${
               activeSection === section.id
-                ? 'bg-violet border-violet glow-violet scale-125'
-                : 'bg-transparent border-gray-400 hover:border-violet hover:scale-110'
+                ? 'bg-indigo border-indigo glow-indigo scale-110'
+                : 'bg-transparent border-white/30 hover:border-white/60'
             }`}
           />
           <span className="absolute right-6 top-1/2 -translate-y-1/2 bg-section-dark text-white text-xs px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">

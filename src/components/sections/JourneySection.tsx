@@ -130,7 +130,9 @@ export const JourneySection = () => {
         {/* Timeline */}
         <div className="max-w-5xl mx-auto relative">
           {/* Vertical Line */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-violet/30 -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo via-indigo/50 to-indigo -translate-x-1/2 shadow-lg" 
+            style={{ boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)' }} 
+          />
 
           {/* Timeline Entries */}
           <div className="space-y-12 lg:space-y-16">
@@ -151,11 +153,11 @@ export const JourneySection = () => {
                     {/* Left Side */}
                     {entry.side === 'left' ? (
                       <div className="lg:text-right lg:pr-12">
-                        <div className="inline-block lg:inline bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-violet transition-smooth hover:glow-violet">
+                        <div className="inline-block lg:inline bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
                           <h3 className="text-xl font-bold text-white mb-1">
                             {entry.role}
                           </h3>
-                          <div className="text-violet font-semibold mb-1">
+                          <div className="text-indigo font-semibold mb-1">
                             {entry.company}
                           </div>
                           <div className="flex items-center lg:justify-end gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
@@ -172,18 +174,18 @@ export const JourneySection = () => {
                     )}
 
                     {/* Logo (Center on large screens) */}
-                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-surface-dark border-4 border-violet items-center justify-center text-4xl glow-violet z-10">
+                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-24 h-24 rounded-full bg-surface-dark border-4 border-indigo items-center justify-center text-5xl glow-indigo-strong z-10 transition-transform duration-300 hover:scale-110">
                       {entry.logo}
                     </div>
 
                     {/* Right Side */}
                     {entry.side === 'right' ? (
                       <div className="lg:pl-12">
-                        <div className="inline-block lg:inline bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-violet transition-smooth hover:glow-violet">
+                        <div className="inline-block lg:inline bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
                           <h3 className="text-xl font-bold text-white mb-1">
                             {entry.role}
                           </h3>
-                          <div className="text-violet font-semibold mb-1">
+                          <div className="text-indigo font-semibold mb-1">
                             {entry.company}
                           </div>
                           <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
@@ -200,7 +202,7 @@ export const JourneySection = () => {
                     )}
 
                     {/* Date on timeline */}
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:-top-8 text-sm font-semibold text-violet text-center whitespace-nowrap">
+                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:-top-8 px-3 py-1 bg-indigo/20 border border-indigo rounded-full text-sm font-bold text-indigo text-center whitespace-nowrap">
                       {entry.period}
                     </div>
                   </div>
@@ -216,17 +218,17 @@ export const JourneySection = () => {
             {education.map((edu, index) => (
               <div
                 key={index}
-                className={`bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-violet transition-smooth hover:glow-violet ${
+                className={`bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo ${
                   isVisible ? `animate-scale-in stagger-${index + 6}` : 'opacity-0'
                 }`}
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <GraduationCap className="text-violet" size={32} />
+                  <GraduationCap className="text-indigo" size={32} />
                   <div>
                     <h3 className="text-lg font-bold text-white mb-1">
                       {edu.degree}
                     </h3>
-                    <div className="text-violet font-semibold text-sm mb-1">
+                    <div className="text-indigo font-semibold text-sm mb-1">
                       {edu.school}
                     </div>
                     <div className="text-sm text-[hsl(var(--text-dark-secondary))]">
@@ -239,7 +241,7 @@ export const JourneySection = () => {
                     {edu.details.join(' · ')}
                   </p>
                   {edu.highlight && (
-                    <p className="text-sm text-violet font-medium">{edu.highlight}</p>
+                    <p className="text-sm text-indigo font-medium">{edu.highlight}</p>
                   )}
                 </div>
               </div>

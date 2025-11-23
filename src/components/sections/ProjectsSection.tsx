@@ -122,12 +122,12 @@ export const ProjectsSection = () => {
               <button
                 key={project.title}
                 onClick={() => setSelectedProject(project)}
-                className={`group bg-surface-light border border-gray-200 rounded-xl p-6 text-left transition-all duration-300 hover:border-violet hover:shadow-lg hover:-translate-y-1 hover:glow-violet ${
+                className={`group bg-surface-light border border-gray-200 rounded-xl p-6 text-left transition-all duration-300 hover:border-indigo hover:shadow-lg hover:-translate-y-2 hover:glow-indigo hover:rotate-1 ${
                   isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
                 }`}
               >
                 <div className="text-4xl mb-4">{project.emoji}</div>
-                <h3 className="text-lg font-bold text-[hsl(var(--text-light-primary))] mb-2 group-hover:text-violet transition-colors">
+                <h3 className="text-lg font-bold text-[hsl(var(--text-light-primary))] mb-2 group-hover:text-indigo transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-sm text-[hsl(var(--text-light-secondary))] mb-4">
@@ -210,7 +210,7 @@ export const ProjectsSection = () => {
                   {selectedProject.githubUrl && (
                     <Button
                       variant="outline"
-                      className="border-violet text-violet hover:bg-violet hover:text-white"
+                      className="border-indigo text-indigo hover:bg-indigo hover:text-white"
                       asChild
                     >
                       <a
@@ -226,7 +226,7 @@ export const ProjectsSection = () => {
                   {selectedProject.liveUrl && (
                     <Button
                       variant="outline"
-                      className="border-violet text-violet hover:bg-violet hover:text-white"
+                      className="border-indigo text-indigo hover:bg-indigo hover:text-white"
                       asChild
                     >
                       <a
