@@ -121,9 +121,27 @@ const extractYears = (timeline: TimelineEntry[]): number[] => {
   return Array.from(years).sort((a, b) => b - a);
 };
 
+// Helper to parse start year from period string
+const parseStartYear = (period: string): number => {
+  const match = period.match(/(\d{4})/);
+  return match ? parseInt(match[1]) : 0;
+};
+
+// Helper to calculate proportional year position on timeline
+const calculateYearPosition = (year: number, minYear: number, maxYear: number): number => {
+  const yearRange = maxYear - minYear;
+  if (yearRange === 0) return 50;
+  return ((maxYear - year) / yearRange) * 85 + 5;
+};
+
 export const JourneySection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
   const years = extractYears(timeline);
+  const minYear = Math.min(...years);
+  const maxYear = Math.max(...years);
+  const sortedTimeline = [...timeline].sort((a, b) => 
+    parseStartYear(b.period) - parseStartYear(a.period)
+  );
 
   return (
     <section
@@ -147,11 +165,11 @@ export const JourneySection = () => {
             style={{ boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)' }} 
           >
             {/* Year Markers */}
-            {years.map((year, idx) => (
+            {years.map((year) => (
               <div 
                 key={year}
-                className="absolute left-1/2 -translate-x-1/2"
-                style={{ top: `${(idx / (years.length - 1)) * 95}%` }}
+                className="absolute left-1/2 -translate-x-1/2 z-20"
+                style={{ top: `${calculateYearPosition(year, minYear, maxYear)}%` }}
               >
                 <div className="px-4 py-1.5 bg-indigo text-white rounded-full text-sm font-bold shadow-lg">
                   {year}
@@ -161,13 +179,18 @@ export const JourneySection = () => {
           </div>
 
           {/* Timeline Entries */}
-          <div className="space-y-20 lg:space-y-24">
-            {timeline.map((entry, index) => {
+          <div className="space-y-32 lg:space-y-40">
+            {sortedTimeline.map((entry, index) => {
               const staggerClass = `stagger-${Math.min((index % 8) + 1, 8)}`;
+              const prevEntry = sortedTimeline[index - 1];
+              const currentYear = parseStartYear(entry.period);
+              const prevYear = prevEntry ? parseStartYear(prevEntry.period) : currentYear;
+              const isNewYear = prevYear !== currentYear;
+              
               return (
                 <div
                   key={index}
-                  className={`relative ${
+                  className={`relative ${isNewYear && index > 0 ? 'mt-20' : ''} ${
                     isVisible ? `animate-fade-up ${staggerClass}` : 'opacity-0'
                   }`}
                 >
