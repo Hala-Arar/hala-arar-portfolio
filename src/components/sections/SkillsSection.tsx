@@ -1,40 +1,37 @@
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-const skillGroups = [
-  {
-    category: 'Languages',
-    skills: ['Python', 'R', 'SQL', 'Bash'],
-  },
-  {
-    category: 'ML & NLP',
-    skills: [
-      'PyTorch',
-      'TensorFlow',
-      'scikit-learn',
-      'Hugging Face',
-      'PubMedBERT',
-      'XGBoost',
-      'LightGBM',
-      'spaCy',
-      'Transformers',
-    ],
-  },
-  {
-    category: 'Data Engineering',
-    skills: ['pandas', 'NumPy', 'ETL', 'REST APIs', 'SQL Optimization'],
-  },
-  {
-    category: 'Cloud & DevOps',
-    skills: ['AWS', 'Docker', 'Git', 'GitHub Actions'],
-  },
-  {
-    category: 'Visualization',
-    skills: ['Shiny', 'Plotly', 'Dash'],
-  },
+const primaryLanguages = [
+  { name: 'Python', icon: '🐍' },
+  { name: 'R', icon: '📊' },
+  { name: 'SQL', icon: '🗄️' },
+];
+
+const otherSkills = [
+  { name: 'PyTorch', icon: '🔥' },
+  { name: 'TensorFlow', icon: '🧠' },
+  { name: 'scikit-learn', icon: '🔬' },
+  { name: 'Hugging Face', icon: '🤗' },
+  { name: 'PubMedBERT', icon: '📝' },
+  { name: 'XGBoost', icon: '🚀' },
+  { name: 'LightGBM', icon: '💡' },
+  { name: 'spaCy', icon: '🌐' },
+  { name: 'Transformers', icon: '⚡' },
+  { name: 'pandas', icon: '🐼' },
+  { name: 'NumPy', icon: '🔢' },
+  { name: 'ETL', icon: '🔄' },
+  { name: 'REST APIs', icon: '🌍' },
+  { name: 'AWS', icon: '☁️' },
+  { name: 'Docker', icon: '🐳' },
+  { name: 'Git', icon: '📦' },
+  { name: 'GitHub Actions', icon: '⚙️' },
+  { name: 'Shiny', icon: '✨' },
+  { name: 'Plotly', icon: '📈' },
+  { name: 'Dash', icon: '📊' },
+  { name: 'Bash', icon: '💻' },
 ];
 
 export const SkillsSection = () => {
-  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <section
@@ -44,7 +41,7 @@ export const SkillsSection = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-16 lg:mb-24 ${
+          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-12 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
@@ -52,37 +49,50 @@ export const SkillsSection = () => {
         </h2>
 
         <div className="max-w-6xl mx-auto">
-          {/* Floating Pills Layout */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-            {skillGroups.map((group, groupIndex) =>
-              group.skills.map((skill, skillIndex) => {
-                const staggerClass = `stagger-${Math.min((groupIndex * 3 + skillIndex) % 8 + 1, 8)}`;
-                return (
-                  <div
-                    key={skill}
-                    className={`px-4 sm:px-6 py-2 sm:py-3 bg-surface-light border border-gray-200 rounded-full text-sm sm:text-base font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-violet hover:scale-105 hover:glow-violet ${
-                      isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
-                    }`}
-                  >
-                    {skill}
+          {/* Primary Languages - Highlighted */}
+          <div className="mb-12">
+            <p
+              className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-8 ${
+                isVisible ? 'animate-fade-up stagger-1' : 'opacity-0'
+              }`}
+            >
+              Primary Languages
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-16">
+              {primaryLanguages.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className={`group flex flex-col items-center gap-3 ${
+                    isVisible ? `animate-float-in stagger-${index + 2}` : 'opacity-0'
+                  }`}
+                >
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-surface-light border-2 border-indigo rounded-2xl text-5xl sm:text-6xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:glow-indigo">
+                    {skill.icon}
                   </div>
-                );
-              })
-            )}
+                  <span className="text-base sm:text-lg font-bold text-[hsl(var(--text-light-primary))] group-hover:text-indigo transition-colors">
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Category Labels (Optional subtle background text) */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
-            {skillGroups.map((group) => (
-              <div
-                key={group.category}
-                className={`text-xs sm:text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider ${
-                  isVisible ? 'animate-fade-up stagger-6' : 'opacity-0'
-                }`}
-              >
-                {group.category}
-              </div>
-            ))}
+          {/* Other Skills - Floating Pills with Icons */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            {otherSkills.map((skill, index) => {
+              const staggerClass = `stagger-${Math.min((index % 8) + 1, 8)}`;
+              return (
+                <div
+                  key={skill.name}
+                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-surface-light border border-gray-200 rounded-full text-sm sm:text-base font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:glow-indigo ${
+                    isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
+                  }`}
+                >
+                  <span className="text-lg">{skill.icon}</span>
+                  <span>{skill.name}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

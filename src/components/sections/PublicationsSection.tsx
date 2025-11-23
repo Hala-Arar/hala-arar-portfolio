@@ -22,7 +22,7 @@ export const PublicationsSection = () => {
 
         <div className="max-w-4xl mx-auto">
           <div
-            className={`bg-surface-light border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-lg hover:border-violet transition-all duration-300 ${
+            className={`bg-surface-light border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-lg hover:border-indigo transition-all duration-300 ${
               isVisible ? 'animate-fade-up stagger-2' : 'opacity-0'
             }`}
           >
@@ -38,7 +38,7 @@ export const PublicationsSection = () => {
             </p>
             <Button
               variant="outline"
-              className="border-violet text-violet hover:bg-violet hover:text-white"
+              className="border-indigo text-indigo hover:bg-indigo hover:text-white"
               asChild
             >
               <a href="#" target="_blank" rel="noopener noreferrer">

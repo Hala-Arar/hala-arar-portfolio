@@ -34,10 +34,10 @@ export const ContactSection = () => {
               href="mailto:hala.arar.02@gmail.com"
               className="group flex flex-col items-center gap-3 transition-smooth"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-violet group-hover:glow-violet transition-all">
-                <Mail className="text-white group-hover:text-violet transition-colors" size={28} />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
+                <Mail className="text-white hover:text-indigo transition-smooth" size={28} />
               </div>
-              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-violet transition-colors">
+              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-indigo transition-colors">
                 Email
               </span>
             </a>
@@ -48,10 +48,10 @@ export const ContactSection = () => {
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-3 transition-smooth"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-violet group-hover:glow-violet transition-all">
-                <Github className="text-white group-hover:text-violet transition-colors" size={28} />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
+                <Github className="text-white hover:text-indigo transition-smooth" size={28} />
               </div>
-              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-violet transition-colors">
+              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-indigo transition-colors">
                 GitHub
               </span>
             </a>
@@ -62,10 +62,10 @@ export const ContactSection = () => {
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-3 transition-smooth"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-violet group-hover:glow-violet transition-all">
-                <Linkedin className="text-white group-hover:text-violet transition-colors" size={28} />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
+                <Linkedin className="text-white hover:text-indigo transition-smooth" size={28} />
               </div>
-              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-violet transition-colors">
+              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-indigo transition-colors">
                 LinkedIn
               </span>
             </a>
@@ -79,7 +79,7 @@ export const ContactSection = () => {
           >
             <Button
               size="lg"
-              className="bg-violet text-white hover:bg-violet/90 glow-violet-strong transition-smooth"
+              className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth"
               asChild
             >
               <a href="#" download>
@@ -90,7 +90,7 @@ export const ContactSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-violet text-violet hover:bg-violet hover:text-white"
+              className="border-indigo text-indigo hover:bg-indigo hover:text-white"
               asChild
             >
               <a href="#" download>
