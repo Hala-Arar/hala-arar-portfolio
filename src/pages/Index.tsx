@@ -1,15 +1,44 @@
-import { Navigation } from "@/components/Navigation";
-import { Hero } from "@/components/Hero";
-import { Footer } from "@/components/Footer";
+import { useScrollSpy } from '@/hooks/useScrollSpy';
+import { MinimalNav } from '@/components/navigation/MinimalNav';
+import { SectionDots } from '@/components/navigation/SectionDots';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { SkillsSection } from '@/components/sections/SkillsSection';
+import { FeaturedProjectSection } from '@/components/sections/FeaturedProjectSection';
+import { ProjectsSection } from '@/components/sections/ProjectsSection';
+import { JourneySection } from '@/components/sections/JourneySection';
+import { PublicationsSection } from '@/components/sections/PublicationsSection';
+import { VolunteeringSection } from '@/components/sections/VolunteeringSection';
+import { ContactSection } from '@/components/sections/ContactSection';
+
+const sections = [
+  { id: 'hero', label: 'Home' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'soorena', label: 'SOORENA' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'journey', label: 'Journey' },
+  { id: 'publications', label: 'Publications' },
+  { id: 'volunteering', label: 'Volunteering' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const Index = () => {
+  const activeSection = useScrollSpy(sections.map((s) => s.id));
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navigation />
-      <main className="flex-1">
-        <Hero />
+    <div className="relative">
+      <MinimalNav activeSection={activeSection} />
+      <SectionDots sections={sections} activeSection={activeSection} />
+      
+      <main className="scroll-smooth">
+        <HeroSection />
+        <SkillsSection />
+        <FeaturedProjectSection />
+        <ProjectsSection />
+        <JourneySection />
+        <PublicationsSection />
+        <VolunteeringSection />
+        <ContactSection />
       </main>
-      <Footer />
     </div>
   );
 };
