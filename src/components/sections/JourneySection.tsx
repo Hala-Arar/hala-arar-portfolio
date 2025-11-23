@@ -109,8 +109,21 @@ const education = [
   },
 ];
 
+// Helper to extract unique years from timeline
+const extractYears = (timeline: TimelineEntry[]): number[] => {
+  const years = new Set<number>();
+  timeline.forEach(entry => {
+    const matches = entry.period.match(/\d{4}/g);
+    if (matches) {
+      matches.forEach(year => years.add(parseInt(year)));
+    }
+  });
+  return Array.from(years).sort((a, b) => b - a);
+};
+
 export const JourneySection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
+  const years = extractYears(timeline);
 
   return (
     <section
@@ -129,13 +142,26 @@ export const JourneySection = () => {
 
         {/* Timeline */}
         <div className="max-w-5xl mx-auto relative">
-          {/* Vertical Line */}
+          {/* Vertical Line with Year Markers */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo via-indigo/50 to-indigo -translate-x-1/2 shadow-lg" 
             style={{ boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)' }} 
-          />
+          >
+            {/* Year Markers */}
+            {years.map((year, idx) => (
+              <div 
+                key={year}
+                className="absolute left-1/2 -translate-x-1/2"
+                style={{ top: `${(idx / (years.length - 1)) * 95}%` }}
+              >
+                <div className="px-4 py-1.5 bg-indigo text-white rounded-full text-sm font-bold shadow-lg">
+                  {year}
+                </div>
+              </div>
+            ))}
+          </div>
 
           {/* Timeline Entries */}
-          <div className="space-y-12 lg:space-y-16">
+          <div className="space-y-20 lg:space-y-24">
             {timeline.map((entry, index) => {
               const staggerClass = `stagger-${Math.min((index % 8) + 1, 8)}`;
               return (
@@ -145,67 +171,68 @@ export const JourneySection = () => {
                     isVisible ? `animate-fade-up ${staggerClass}` : 'opacity-0'
                   }`}
                 >
-                  <div
-                    className={`grid lg:grid-cols-2 gap-8 items-center ${
-                      entry.side === 'right' ? 'lg:flex-row-reverse' : ''
-                    }`}
-                  >
-                    {/* Left Side */}
-                    {entry.side === 'left' ? (
-                      <div className="lg:text-right lg:pr-12">
-                        <div className="inline-block lg:inline bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
-                          <h3 className="text-xl font-bold text-white mb-1">
-                            {entry.role}
-                          </h3>
-                          <div className="text-indigo font-semibold mb-1">
-                            {entry.company}
-                          </div>
-                          <div className="flex items-center lg:justify-end gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
-                            <MapPin size={14} />
-                            <span>{entry.location}</span>
-                          </div>
-                          <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
-                            {entry.description}
-                          </p>
-                        </div>
+                  {/* Connection dot on timeline */}
+                  <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-indigo shadow-lg z-10" 
+                    style={{ boxShadow: '0 0 10px rgba(99, 102, 241, 0.6)' }} 
+                  />
+
+                  {entry.side === 'left' ? (
+                    // LEFT SIDE ENTRY: Logo on left, card on right of center
+                    <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-center lg:pr-[50%]">
+                      {/* Logo on LEFT side */}
+                      <div className="w-16 h-16 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-3xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
+                        {entry.logo}
                       </div>
-                    ) : (
-                      <div className="hidden lg:block" />
-                    )}
-
-                    {/* Logo (Center on large screens) */}
-                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-24 h-24 rounded-full bg-surface-dark border-4 border-indigo items-center justify-center text-5xl glow-indigo-strong z-10 transition-transform duration-300 hover:scale-110">
-                      {entry.logo}
-                    </div>
-
-                    {/* Right Side */}
-                    {entry.side === 'right' ? (
-                      <div className="lg:pl-12">
-                        <div className="inline-block lg:inline bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
-                          <h3 className="text-xl font-bold text-white mb-1">
-                            {entry.role}
-                          </h3>
-                          <div className="text-indigo font-semibold mb-1">
-                            {entry.company}
-                          </div>
-                          <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
-                            <MapPin size={14} />
-                            <span>{entry.location}</span>
-                          </div>
-                          <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
-                            {entry.description}
-                          </p>
+                      
+                      {/* Card content */}
+                      <div className="bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                        <h3 className="text-xl font-bold text-white mb-1">
+                          {entry.role}
+                        </h3>
+                        <div className="text-indigo font-semibold mb-1">
+                          {entry.company}
                         </div>
+                        <div className="text-sm text-gray-400 mb-2">
+                          {entry.period}
+                        </div>
+                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
+                          <MapPin size={14} />
+                          <span>{entry.location}</span>
+                        </div>
+                        <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
+                          {entry.description}
+                        </p>
                       </div>
-                    ) : (
-                      <div className="hidden lg:block" />
-                    )}
-
-                    {/* Date on timeline */}
-                    <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:-top-8 px-3 py-1 bg-indigo/20 border border-indigo rounded-full text-sm font-bold text-indigo text-center whitespace-nowrap">
-                      {entry.period}
                     </div>
-                  </div>
+                  ) : (
+                    // RIGHT SIDE ENTRY: Card on left of center, logo on right
+                    <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center lg:pl-[50%]">
+                      {/* Card content */}
+                      <div className="bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                        <h3 className="text-xl font-bold text-white mb-1">
+                          {entry.role}
+                        </h3>
+                        <div className="text-indigo font-semibold mb-1">
+                          {entry.company}
+                        </div>
+                        <div className="text-sm text-gray-400 mb-2">
+                          {entry.period}
+                        </div>
+                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
+                          <MapPin size={14} />
+                          <span>{entry.location}</span>
+                        </div>
+                        <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
+                          {entry.description}
+                        </p>
+                      </div>
+                      
+                      {/* Logo on RIGHT side */}
+                      <div className="w-16 h-16 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-3xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
+                        {entry.logo}
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
