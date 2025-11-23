@@ -100,9 +100,9 @@ export const HeroSection = () => {
                 className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth text-base"
                 asChild
               >
-                <a href="#" download>
+                <a href="/Hala_Arar_Resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-5 w-5" />
-                  Download Resume
+                  View Resume
                 </a>
               </Button>
             </div>
