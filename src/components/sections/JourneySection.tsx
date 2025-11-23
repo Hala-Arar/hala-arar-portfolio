@@ -162,7 +162,7 @@ export const JourneySection = () => {
           />
 
           {/* Timeline Entries */}
-          <div className="space-y-20 lg:space-y-24">
+          <div className="space-y-8 lg:space-y-10">
             {timeline.map((entry, index) => {
               return (
                 <div
@@ -181,7 +181,7 @@ export const JourneySection = () => {
                     // LEFT SIDE ENTRY: Logo on left, card on right of center
                     <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-center lg:pr-[calc(50%+3rem)]">
                       {/* Logo on LEFT side */}
-                      <div className="w-16 h-16 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-3xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-4xl sm:text-5xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
                         {entry.logo}
                       </div>
                       
@@ -229,7 +229,7 @@ export const JourneySection = () => {
                       </div>
                       
                       {/* Logo on RIGHT side */}
-                      <div className="w-16 h-16 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-3xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-4xl sm:text-5xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
                         {entry.logo}
                       </div>
                     </div>
@@ -241,7 +241,7 @@ export const JourneySection = () => {
         </div>
 
         {/* Education Cards */}
-        <div className="max-w-5xl mx-auto mt-20 lg:mt-32">
+        <div className="max-w-5xl mx-auto mt-12 lg:mt-16">
           <div className="grid md:grid-cols-2 gap-8">
             {education.map((edu, index) => (
               <div
@@ -251,7 +251,9 @@ export const JourneySection = () => {
                 }`}
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <GraduationCap className="text-indigo" size={32} />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center glow-indigo-strong flex-shrink-0">
+                    <GraduationCap className="text-indigo" size={32} />
+                  </div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-1">
                       {edu.degree}
