@@ -1,33 +1,33 @@
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const primaryLanguages = [
-  { name: 'Python', icon: '🐍' },
-  { name: 'R', icon: '📊' },
-  { name: 'SQL', icon: '🗄️' },
+  { name: 'Python', icon: '/skills/python.svg' },
+  { name: 'R', icon: '/skills/r.svg' },
+  { name: 'SQL', icon: '/skills/sql.svg' },
 ];
 
 const otherSkills = [
-  { name: 'PyTorch', icon: '🔥' },
-  { name: 'TensorFlow', icon: '🧠' },
-  { name: 'scikit-learn', icon: '🔬' },
-  { name: 'Hugging Face', icon: '🤗' },
-  { name: 'PubMedBERT', icon: '📝' },
-  { name: 'XGBoost', icon: '🚀' },
-  { name: 'LightGBM', icon: '💡' },
-  { name: 'spaCy', icon: '🌐' },
-  { name: 'Transformers', icon: '⚡' },
-  { name: 'pandas', icon: '🐼' },
-  { name: 'NumPy', icon: '🔢' },
-  { name: 'ETL', icon: '🔄' },
-  { name: 'REST APIs', icon: '🌍' },
-  { name: 'AWS', icon: '☁️' },
-  { name: 'Docker', icon: '🐳' },
-  { name: 'Git', icon: '📦' },
-  { name: 'GitHub Actions', icon: '⚙️' },
-  { name: 'Shiny', icon: '✨' },
-  { name: 'Plotly', icon: '📈' },
-  { name: 'Dash', icon: '📊' },
-  { name: 'Bash', icon: '💻' },
+  { name: 'PyTorch', icon: '/skills/pytorch.svg' },
+  { name: 'TensorFlow', icon: '/skills/tensorflow.svg' },
+  { name: 'scikit-learn', icon: '/skills/sklearn.svg' },
+  { name: 'Hugging Face', icon: '/skills/huggingface.svg' },
+  { name: 'PubMedBERT', icon: '/skills/bert.svg' },
+  { name: 'XGBoost', icon: '/skills/xgboost.svg' },
+  { name: 'LightGBM', icon: '/skills/lightgbm.svg' },
+  { name: 'spaCy', icon: '/skills/spacy.svg' },
+  { name: 'Transformers', icon: '/skills/transformers.svg' },
+  { name: 'pandas', icon: '/skills/pandas.svg' },
+  { name: 'NumPy', icon: '/skills/numpy.svg' },
+  { name: 'ETL', icon: '/skills/etl.svg' },
+  { name: 'REST APIs', icon: '/skills/api.svg' },
+  { name: 'AWS', icon: '/skills/aws.svg' },
+  { name: 'Docker', icon: '/skills/docker.svg' },
+  { name: 'Git', icon: '/skills/git.svg' },
+  { name: 'GitHub Actions', icon: '/skills/github-actions.svg' },
+  { name: 'Shiny', icon: '/skills/shiny.svg' },
+  { name: 'Plotly', icon: '/skills/plotly.svg' },
+  { name: 'Dash', icon: '/skills/dash.svg' },
+  { name: 'Bash', icon: '/skills/bash.svg' },
 ];
 
 export const SkillsSection = () => {
@@ -66,8 +66,8 @@ export const SkillsSection = () => {
                     isVisible ? `animate-float-in stagger-${index + 2}` : 'opacity-0'
                   }`}
                 >
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-surface-light border-2 border-indigo rounded-2xl text-5xl sm:text-6xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:glow-indigo">
-                    {skill.icon}
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-surface-light border-2 border-indigo rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:glow-indigo">
+                    <img src={skill.icon} alt={`${skill.name} logo`} className="w-full h-full object-contain" />
                   </div>
                   <span className="text-base sm:text-lg font-bold text-[hsl(var(--text-light-primary))] group-hover:text-indigo transition-colors">
                     {skill.name}
@@ -88,7 +88,7 @@ export const SkillsSection = () => {
                     isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
                   }`}
                 >
-                  <span className="text-lg">{skill.icon}</span>
+                  <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
                   <span>{skill.name}</span>
                 </div>
               );
