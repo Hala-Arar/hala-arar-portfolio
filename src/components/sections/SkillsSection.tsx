@@ -6,28 +6,41 @@ const primaryLanguages = [
   { name: 'SQL', icon: '/skills/sql.svg' },
 ];
 
-const otherSkills = [
-  { name: 'PyTorch', icon: '/skills/pytorch.svg' },
-  { name: 'TensorFlow', icon: '/skills/tensorflow.svg' },
-  { name: 'scikit-learn', icon: '/skills/sklearn.svg' },
-  { name: 'Hugging Face', icon: '/skills/huggingface.svg' },
-  { name: 'PubMedBERT', icon: '/skills/bert.svg' },
-  { name: 'XGBoost', icon: '/skills/xgboost.svg' },
-  { name: 'LightGBM', icon: '/skills/lightgbm.svg' },
-  { name: 'spaCy', icon: '/skills/spacy.svg' },
-  { name: 'Transformers', icon: '/skills/transformers.svg' },
-  { name: 'pandas', icon: '/skills/pandas.svg' },
-  { name: 'NumPy', icon: '/skills/numpy.svg' },
-  { name: 'ETL', icon: '/skills/etl.svg' },
-  { name: 'REST APIs', icon: '/skills/api.svg' },
-  { name: 'AWS', icon: '/skills/aws.svg' },
-  { name: 'Docker', icon: '/skills/docker.svg' },
-  { name: 'Git', icon: '/skills/git.svg' },
-  { name: 'GitHub Actions', icon: '/skills/github-actions.svg' },
-  { name: 'Shiny', icon: '/skills/shiny.svg' },
-  { name: 'Plotly', icon: '/skills/plotly.svg' },
-  { name: 'Dash', icon: '/skills/dash.svg' },
-  { name: 'Bash', icon: '/skills/bash.svg' },
+const skillCategories = [
+  {
+    title: 'Machine Learning & AI',
+    skills: [
+      { name: 'PyTorch', icon: '/skills/pytorch.svg' },
+      { name: 'TensorFlow', icon: '/skills/tensorflow.svg' },
+      { name: 'scikit-learn', icon: '/skills/sklearn.svg' },
+    ],
+  },
+  {
+    title: 'Natural Language Processing',
+    skills: [
+      { name: 'Hugging Face', icon: '/skills/huggingface.svg' },
+      { name: 'PubMedBERT', icon: '/skills/pubmed.svg' },
+      { name: 'spaCy', icon: '/skills/spacy.svg' },
+    ],
+  },
+  {
+    title: 'Data & Visualization',
+    skills: [
+      { name: 'pandas', icon: '/skills/pandas.svg' },
+      { name: 'NumPy', icon: '/skills/numpy.svg' },
+      { name: 'Plotly', icon: '/skills/plotly.svg' },
+    ],
+  },
+  {
+    title: 'Tools & Infrastructure',
+    skills: [
+      { name: 'AWS', icon: '/skills/aws.svg' },
+      { name: 'Docker', icon: '/skills/docker.svg' },
+      { name: 'Git', icon: '/skills/git.svg' },
+      { name: 'GitHub Actions', icon: '/skills/github-actions.svg' },
+      { name: 'Bash', icon: '/skills/bash.svg' },
+    ],
+  },
 ];
 
 export const SkillsSection = () => {
@@ -77,22 +90,35 @@ export const SkillsSection = () => {
             </div>
           </div>
 
-          {/* Other Skills - Floating Pills with Icons */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-            {otherSkills.map((skill, index) => {
-              const staggerClass = `stagger-${Math.min((index % 8) + 1, 8)}`;
-              return (
-                <div
-                  key={skill.name}
-                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-surface-light border border-gray-200 rounded-full text-sm sm:text-base font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:glow-indigo ${
-                    isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
+          {/* Categorized Skills */}
+          <div className="space-y-12">
+            {skillCategories.map((category, categoryIndex) => (
+              <div key={category.title}>
+                <p
+                  className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-6 ${
+                    isVisible ? `animate-fade-up stagger-${categoryIndex + 5}` : 'opacity-0'
                   }`}
                 >
-                  <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
-                  <span>{skill.name}</span>
+                  {category.title}
+                </p>
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+                  {category.skills.map((skill, skillIndex) => {
+                    const staggerClass = `stagger-${Math.min((skillIndex % 8) + 1, 8)}`;
+                    return (
+                      <div
+                        key={skill.name}
+                        className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-surface-light border border-gray-200 rounded-full text-sm sm:text-base font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:glow-indigo ${
+                          isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
+                        }`}
+                      >
+                        <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
+                        <span>{skill.name}</span>
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
