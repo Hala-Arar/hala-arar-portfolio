@@ -25,8 +25,12 @@ export const FeaturedProjectSection = () => {
             <div className={`space-y-4 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
               {/* Logo and Project Name */}
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-surface-dark border-2 border-indigo rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span className="text-indigo text-xs font-semibold">LOGO</span>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-surface-dark border-2 border-indigo rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img
+                    src="/soorena-logo.png"
+                    alt="SOORENA Logo"
+                    className="w-full h-full object-contain p-2"
+                  />
                 </div>
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
                   SOORENA
@@ -123,13 +127,13 @@ export const FeaturedProjectSection = () => {
                     soorena-app.shinyapps.io
                   </div>
                 </div>
-                {/* Screenshot Placeholder */}
-                <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-8">
-                  <p className="text-gray-500 text-center">
-                    Shiny App Screenshot
-                    <br />
-                    <span className="text-sm">(Add actual screenshot here)</span>
-                  </p>
+                {/* Screenshot */}
+                <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/soorena-screenshot.png"
+                    alt="SOORENA Shiny App Interface"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
