@@ -25,7 +25,7 @@ export const FeaturedProjectSection = () => {
             <div className={`space-y-4 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
               {/* Logo and Project Name */}
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-surface-dark border-2 border-indigo rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-surface-dark border-2 border-indigo rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img
                     src="/soorena-logo.png"
                     alt="SOORENA Logo"
@@ -89,17 +89,7 @@ export const FeaturedProjectSection = () => {
                 className="border-indigo text-indigo hover:bg-indigo hover:text-white"
                 asChild
               >
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Live Demo
-                </a>
-              </Button>
-              <Button
-                variant="outline"
-                className="border-indigo text-indigo hover:bg-indigo hover:text-white"
-                asChild
-              >
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.biorxiv.org/content/10.1101/2025.11.03.685842v1" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Publication
                 </a>
@@ -132,7 +122,7 @@ export const FeaturedProjectSection = () => {
                   <img
                     src="/soorena-screenshot.png"
                     alt="SOORENA Shiny App Interface"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
