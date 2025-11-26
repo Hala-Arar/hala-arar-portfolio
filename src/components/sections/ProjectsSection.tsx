@@ -13,6 +13,7 @@ import {
   Beaker,
   BookOpen,
   LucideIcon,
+  Construction,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -23,6 +24,8 @@ interface Project {
   tech: string[];
   githubUrl?: string;
   liveUrl?: string;
+  pdfUrl?: string;
+  workInProgress?: boolean;
   icon: LucideIcon;
 }
 
@@ -33,6 +36,7 @@ const projects: Project[] = [
     fullDescription:
       "Developed machine learning models combining XGBoost and Large Language Models to classify genetic variants according to ACMG guidelines. This research project demonstrated high accuracy in clinical variant interpretation for diagnostic applications.",
     tech: ["Python", "XGBoost", "LLMs", "ACMG Guidelines"],
+    workInProgress: true,
     icon: Dna,
   },
   {
@@ -86,6 +90,7 @@ const projects: Project[] = [
     fullDescription:
       "Led a self-directed experimental study investigating the antibacterial properties of honey and tea tree oil. Designed the full experimental workflow, performed bacterial culture and CFU counting, and conducted statistical analysis in R using linear models and ANOVA.",
     tech: ["R", "Experimental Design", "ANOVA", "Statistics"],
+    pdfUrl: "/natural_antibiotics_report.pdf",
     icon: Beaker,
   },
   {
@@ -174,8 +179,14 @@ export const ProjectsSection = () => {
             <div className="p-6 sm:p-8">
               {/* Header */}
               <div className="flex justify-between items-start mb-6">
-                <div>
+                <div className="flex-1">
                   <selectedProject.icon className="w-12 h-12 mb-4 text-indigo" strokeWidth={1.5} />
+                  {selectedProject.workInProgress && (
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full mb-3">
+                      <Construction className="w-4 h-4 text-yellow-500" />
+                      <span className="text-sm font-semibold text-yellow-500">Work in Progress</span>
+                    </div>
+                  )}
                   <h3 className="text-2xl sm:text-3xl font-bold text-white">{selectedProject.title}</h3>
                 </div>
                 <button
@@ -207,31 +218,61 @@ export const ProjectsSection = () => {
               </div>
 
               {/* Links */}
-              {(selectedProject.githubUrl || selectedProject.liveUrl) && (
+              {(selectedProject.githubUrl || selectedProject.liveUrl || selectedProject.pdfUrl || selectedProject.workInProgress) && (
                 <div className="flex flex-wrap gap-3">
-                  {selectedProject.githubUrl && (
-                    <Button
-                      variant="outline"
-                      className="border-indigo text-indigo hover:bg-indigo hover:text-white"
-                      asChild
-                    >
-                      <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
-                        View on GitHub
-                      </a>
-                    </Button>
-                  )}
-                  {selectedProject.liveUrl && (
-                    <Button
-                      variant="outline"
-                      className="border-indigo text-indigo hover:bg-indigo hover:text-white"
-                      asChild
-                    >
-                      <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Live Demo
-                      </a>
-                    </Button>
+                  {selectedProject.workInProgress ? (
+                    <div className="space-y-2 w-full">
+                      <Button
+                        variant="outline"
+                        className="border-gray-600 text-gray-500 cursor-not-allowed opacity-60"
+                        disabled
+                      >
+                        <Construction className="mr-2 h-4 w-4" />
+                        Coming Soon
+                      </Button>
+                      <p className="text-sm text-[hsl(var(--text-dark-secondary))] italic">
+                        This project is currently under development
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      {selectedProject.githubUrl && (
+                        <Button
+                          variant="outline"
+                          className="border-indigo text-indigo hover:bg-indigo hover:text-white"
+                          asChild
+                        >
+                          <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="mr-2 h-4 w-4" />
+                            View on GitHub
+                          </a>
+                        </Button>
+                      )}
+                      {selectedProject.liveUrl && (
+                        <Button
+                          variant="outline"
+                          className="border-indigo text-indigo hover:bg-indigo hover:text-white"
+                          asChild
+                        >
+                          <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            Live Demo
+                          </a>
+                        </Button>
+                      )}
+                      {selectedProject.pdfUrl && (
+                        <Button
+                          variant="outline"
+                          className="border-indigo text-indigo hover:bg-indigo hover:text-white"
+                          asChild
+                        >
+                          <a href={selectedProject.pdfUrl} target="_blank" rel="noopener noreferrer">
+                            <FileText className="mr-2 h-4 w-4" />
+                            View Research Report
+                          </a>
+                        </Button>
+                      )}
+                    </>
                   )}
                 </div>
               )}
