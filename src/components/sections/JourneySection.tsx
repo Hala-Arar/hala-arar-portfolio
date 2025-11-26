@@ -175,7 +175,7 @@ export const JourneySection = () => {
     <section
       id="journey"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-section-light py-20"
+      className="min-h-screen flex items-center justify-center bg-section-light py-12"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
@@ -194,7 +194,7 @@ export const JourneySection = () => {
           />
 
           {/* Timeline Entries */}
-          <div className="space-y-4 lg:space-y-6">
+          <div className="space-y-2 lg:space-y-3">
             {timeline.map((entry, index) => {
               return (
                 <div
@@ -229,21 +229,21 @@ export const JourneySection = () => {
                       </div>
                       
                       {/* Card content */}
-                      <div className="bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
-                        <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-1">
+                      <div className="bg-surface-light border border-gray-200 rounded-xl p-4 hover:border-indigo transition-smooth hover:glow-indigo">
+                        <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-0.5">
                           {entry.role}
                         </h3>
-                        <div className="text-indigo font-semibold mb-1">
+                        <div className="text-indigo font-semibold mb-0.5">
                           {entry.company}
                         </div>
-                        <div className="text-sm text-[hsl(var(--text-light-secondary))] mb-2">
+                        <div className="text-sm text-[hsl(var(--text-light-secondary))] mb-1">
                           {entry.period}
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-light-secondary))] mb-3">
+                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-light-secondary))] mb-2">
                           <MapPin size={14} />
                           <span>{entry.location}</span>
                         </div>
-                        <p className="text-sm text-[hsl(var(--text-light-secondary))] leading-relaxed">
+                        <p className="text-sm text-[hsl(var(--text-light-secondary))] leading-snug">
                           {entry.description}
                         </p>
                       </div>
@@ -252,21 +252,21 @@ export const JourneySection = () => {
                     // RIGHT SIDE ENTRY: Card on left of center, logo on right
                     <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center lg:pl-[calc(50%+3rem)]">
                       {/* Card content */}
-                      <div className="bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
-                        <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-1">
+                      <div className="bg-surface-light border border-gray-200 rounded-xl p-4 hover:border-indigo transition-smooth hover:glow-indigo">
+                        <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-0.5">
                           {entry.role}
                         </h3>
-                        <div className="text-indigo font-semibold mb-1">
+                        <div className="text-indigo font-semibold mb-0.5">
                           {entry.company}
                         </div>
-                        <div className="text-sm text-[hsl(var(--text-light-secondary))] mb-2">
+                        <div className="text-sm text-[hsl(var(--text-light-secondary))] mb-1">
                           {entry.period}
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-light-secondary))] mb-3">
+                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-light-secondary))] mb-2">
                           <MapPin size={14} />
                           <span>{entry.location}</span>
                         </div>
-                        <p className="text-sm text-[hsl(var(--text-light-secondary))] leading-relaxed">
+                        <p className="text-sm text-[hsl(var(--text-light-secondary))] leading-snug">
                           {entry.description}
                         </p>
                       </div>
@@ -300,11 +300,11 @@ export const JourneySection = () => {
             {education.map((edu, index) => (
               <div
                 key={index}
-                className={`bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo ${
+                className={`bg-surface-light border border-gray-200 rounded-xl p-4 hover:border-indigo transition-smooth hover:glow-indigo ${
                   isVisible ? `animate-scale-in stagger-${index + 6}` : 'opacity-0'
                 }`}
               >
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-4 mb-3">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border-4 border-indigo flex items-center justify-center glow-indigo-strong flex-shrink-0 overflow-hidden">
                     {edu.logo ? (
                       <img
@@ -318,10 +318,10 @@ export const JourneySection = () => {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-[hsl(var(--text-light-primary))] mb-1">
+                    <h3 className="text-lg font-bold text-[hsl(var(--text-light-primary))] mb-0.5">
                       {edu.degree}
                     </h3>
-                    <div className="text-indigo font-semibold text-sm mb-1">
+                    <div className="text-indigo font-semibold text-sm mb-0.5">
                       {edu.school}
                     </div>
                     <div className="text-sm text-[hsl(var(--text-light-secondary))]">
@@ -329,7 +329,7 @@ export const JourneySection = () => {
                     </div>
                   </div>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <p className="text-sm text-[hsl(var(--text-light-secondary))]">
                     {edu.details.join(' · ')}
                   </p>
