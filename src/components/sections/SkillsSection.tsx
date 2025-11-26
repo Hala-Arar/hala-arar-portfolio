@@ -6,41 +6,21 @@ const primaryLanguages = [
   { name: 'SQL', icon: '/skills/sql.svg' },
 ];
 
-const skillCategories = [
-  {
-    title: 'Machine Learning & AI',
-    skills: [
-      { name: 'PyTorch', icon: '/skills/pytorch.svg' },
-      { name: 'TensorFlow', icon: '/skills/tensorflow.svg' },
-      { name: 'scikit-learn', icon: '/skills/sklearn.svg' },
-    ],
-  },
-  {
-    title: 'Natural Language Processing',
-    skills: [
-      { name: 'Hugging Face', icon: '/skills/huggingface.svg' },
-      { name: 'PubMedBERT', icon: '/skills/pubmed.svg' },
-      { name: 'spaCy', icon: '/skills/spacy.svg' },
-    ],
-  },
-  {
-    title: 'Data & Visualization',
-    skills: [
-      { name: 'pandas', icon: '/skills/pandas.svg' },
-      { name: 'NumPy', icon: '/skills/numpy.svg' },
-      { name: 'Plotly', icon: '/skills/plotly.svg' },
-    ],
-  },
-  {
-    title: 'Tools & Infrastructure',
-    skills: [
-      { name: 'AWS', icon: '/skills/aws.svg' },
-      { name: 'Docker', icon: '/skills/docker.svg' },
-      { name: 'Git', icon: '/skills/git.svg' },
-      { name: 'GitHub Actions', icon: '/skills/github-actions.svg' },
-      { name: 'Bash', icon: '/skills/bash.svg' },
-    ],
-  },
+const floatingSkills = [
+  { name: 'PyTorch', icon: '/skills/pytorch.svg', position: 'translate-x-[-20px] translate-y-[10px]', animation: 'animate-gentle-float-1', delay: 'delay-0' },
+  { name: 'TensorFlow', icon: '/skills/tensorflow.svg', position: 'translate-x-[30px] translate-y-[-5px]', animation: 'animate-gentle-float-2', delay: 'delay-100' },
+  { name: 'scikit-learn', icon: '/skills/sklearn.svg', position: 'translate-x-[-15px] translate-y-[15px]', animation: 'animate-gentle-float-3', delay: 'delay-200' },
+  { name: 'Hugging Face', icon: '/skills/huggingface.svg', position: 'translate-x-[25px] translate-y-[8px]', animation: 'animate-gentle-float-1', delay: 'delay-300' },
+  { name: 'PubMedBERT', icon: '/skills/pubmed.svg', position: 'translate-x-[-10px] translate-y-[-8px]', animation: 'animate-gentle-float-2', delay: 'delay-150' },
+  { name: 'spaCy', icon: '/skills/spacy.svg', position: 'translate-x-[18px] translate-y-[12px]', animation: 'animate-gentle-float-3', delay: 'delay-500' },
+  { name: 'pandas', icon: '/skills/pandas.svg', position: 'translate-x-[-25px] translate-y-[-10px]', animation: 'animate-gentle-float-1', delay: 'delay-700' },
+  { name: 'NumPy', icon: '/skills/numpy.svg', position: 'translate-x-[15px] translate-y-[5px]', animation: 'animate-gentle-float-2', delay: 'delay-400' },
+  { name: 'Plotly', icon: '/skills/plotly.svg', position: 'translate-x-[-18px] translate-y-[18px]', animation: 'animate-gentle-float-3', delay: 'delay-600' },
+  { name: 'AWS', icon: '/skills/aws.svg', position: 'translate-x-[22px] translate-y-[-12px]', animation: 'animate-gentle-float-1', delay: 'delay-800' },
+  { name: 'Docker', icon: '/skills/docker.svg', position: 'translate-x-[-12px] translate-y-[6px]', animation: 'animate-gentle-float-2', delay: 'delay-200' },
+  { name: 'Git', icon: '/skills/git.svg', position: 'translate-x-[28px] translate-y-[-15px]', animation: 'animate-gentle-float-3', delay: 'delay-900' },
+  { name: 'GitHub Actions', icon: '/skills/github-actions.svg', position: 'translate-x-[-8px] translate-y-[20px]', animation: 'animate-gentle-float-1', delay: 'delay-1000' },
+  { name: 'Bash', icon: '/skills/bash.svg', position: 'translate-x-[20px] translate-y-[-18px]', animation: 'animate-gentle-float-2', delay: 'delay-300' },
 ];
 
 export const SkillsSection = () => {
@@ -90,33 +70,17 @@ export const SkillsSection = () => {
             </div>
           </div>
 
-          {/* Categorized Skills */}
-          <div className="space-y-3">
-            {skillCategories.map((category, categoryIndex) => (
-              <div key={category.title}>
-                <p
-                  className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-2 ${
-                    isVisible ? `animate-fade-up stagger-${categoryIndex + 5}` : 'opacity-0'
-                  }`}
-                >
-                  {category.title}
-                </p>
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-                  {category.skills.map((skill, skillIndex) => {
-                    const staggerClass = `stagger-${Math.min((skillIndex % 8) + 1, 8)}`;
-                    return (
-                      <div
-                        key={skill.name}
-                        className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:glow-indigo ${
-                          isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
-                        }`}
-                      >
-                        <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
-                        <span>{skill.name}</span>
-                      </div>
-                    );
-                  })}
-                </div>
+          {/* Floating Skills */}
+          <div className="relative flex flex-wrap justify-center gap-3 sm:gap-4 mt-8">
+            {floatingSkills.map((skill, index) => (
+              <div
+                key={skill.name}
+                className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:shadow-lg ${
+                  isVisible ? `${skill.animation} ${skill.delay} ${skill.position}` : 'opacity-0'
+                }`}
+              >
+                <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
+                <span>{skill.name}</span>
               </div>
             ))}
           </div>
