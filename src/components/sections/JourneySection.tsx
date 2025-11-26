@@ -48,7 +48,7 @@ const timeline: TimelineEntry[] = [
     role: "Dental Assistant",
     company: "Park Street Dentistry",
     location: "Peterborough, ON",
-    period: "Jul 2022 – Apr 2024",
+    period: "Jul 2023 – Apr 2024",
     description: "Managed patient records, improved data accessibility, streamlined clinical workflows",
     logo: "/logos/PSD.png",
     isImage: true,
