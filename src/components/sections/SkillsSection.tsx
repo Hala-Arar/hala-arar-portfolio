@@ -6,21 +6,30 @@ const primaryLanguages = [
   { name: 'SQL', icon: '/skills/sql.svg' },
 ];
 
-const floatingSkills = [
-  { name: 'PyTorch', icon: '/skills/pytorch.svg', position: 'translate-x-[-20px] translate-y-[10px]', animation: 'animate-gentle-float-1', delay: 'delay-0' },
-  { name: 'TensorFlow', icon: '/skills/tensorflow.svg', position: 'translate-x-[30px] translate-y-[-5px]', animation: 'animate-gentle-float-2', delay: 'delay-100' },
-  { name: 'scikit-learn', icon: '/skills/sklearn.svg', position: 'translate-x-[-15px] translate-y-[15px]', animation: 'animate-gentle-float-3', delay: 'delay-200' },
-  { name: 'Hugging Face', icon: '/skills/huggingface.svg', position: 'translate-x-[25px] translate-y-[8px]', animation: 'animate-gentle-float-1', delay: 'delay-300' },
-  { name: 'PubMedBERT', icon: '/skills/pubmed.svg', position: 'translate-x-[-10px] translate-y-[-8px]', animation: 'animate-gentle-float-2', delay: 'delay-150' },
-  { name: 'spaCy', icon: '/skills/spacy.svg', position: 'translate-x-[18px] translate-y-[12px]', animation: 'animate-gentle-float-3', delay: 'delay-500' },
-  { name: 'pandas', icon: '/skills/pandas.svg', position: 'translate-x-[-25px] translate-y-[-10px]', animation: 'animate-gentle-float-1', delay: 'delay-700' },
-  { name: 'NumPy', icon: '/skills/numpy.svg', position: 'translate-x-[15px] translate-y-[5px]', animation: 'animate-gentle-float-2', delay: 'delay-400' },
-  { name: 'Plotly', icon: '/skills/plotly.svg', position: 'translate-x-[-18px] translate-y-[18px]', animation: 'animate-gentle-float-3', delay: 'delay-600' },
-  { name: 'AWS', icon: '/skills/aws.svg', position: 'translate-x-[22px] translate-y-[-12px]', animation: 'animate-gentle-float-1', delay: 'delay-800' },
-  { name: 'Docker', icon: '/skills/docker.svg', position: 'translate-x-[-12px] translate-y-[6px]', animation: 'animate-gentle-float-2', delay: 'delay-200' },
-  { name: 'Git', icon: '/skills/git.svg', position: 'translate-x-[28px] translate-y-[-15px]', animation: 'animate-gentle-float-3', delay: 'delay-900' },
-  { name: 'GitHub Actions', icon: '/skills/github-actions.svg', position: 'translate-x-[-8px] translate-y-[20px]', animation: 'animate-gentle-float-1', delay: 'delay-1000' },
-  { name: 'Bash', icon: '/skills/bash.svg', position: 'translate-x-[20px] translate-y-[-18px]', animation: 'animate-gentle-float-2', delay: 'delay-300' },
+// Row 1: 5 skills
+const skillsRow1 = [
+  { name: 'PyTorch', icon: '/skills/pytorch.svg', margin: 'ml-[-15px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:0ms]' },
+  { name: 'TensorFlow', icon: '/skills/tensorflow.svg', margin: 'ml-[20px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:400ms]' },
+  { name: 'scikit-learn', icon: '/skills/sklearn.svg', margin: 'ml-[-10px]', animation: 'animate-gentle-float-3', delay: '[animation-delay:800ms]' },
+  { name: 'Hugging Face', icon: '/skills/huggingface.svg', margin: 'ml-[25px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:1200ms]' },
+  { name: 'PubMedBERT', icon: '/skills/pubmed.svg', margin: 'ml-[-18px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:600ms]' },
+];
+
+// Row 2: 5 skills
+const skillsRow2 = [
+  { name: 'spaCy', icon: '/skills/spacy.svg', margin: 'ml-[18px]', animation: 'animate-gentle-float-3', delay: '[animation-delay:1600ms]' },
+  { name: 'pandas', icon: '/skills/pandas.svg', margin: 'ml-[-22px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:200ms]' },
+  { name: 'NumPy', icon: '/skills/numpy.svg', margin: 'ml-[15px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:1000ms]' },
+  { name: 'Plotly', icon: '/skills/plotly.svg', margin: 'ml-[-12px]', animation: 'animate-gentle-float-3', delay: '[animation-delay:1400ms]' },
+  { name: 'AWS', icon: '/skills/aws.svg', margin: 'ml-[28px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:1800ms]' },
+];
+
+// Row 3: 4 skills
+const skillsRow3 = [
+  { name: 'Docker', icon: '/skills/docker.svg', margin: 'ml-[-8px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:500ms]' },
+  { name: 'Git', icon: '/skills/git.svg', margin: 'ml-[22px]', animation: 'animate-gentle-float-3', delay: '[animation-delay:900ms]' },
+  { name: 'GitHub Actions', icon: '/skills/github-actions.svg', margin: 'ml-[-15px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:1300ms]' },
+  { name: 'Bash', icon: '/skills/bash.svg', margin: 'ml-[18px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:1700ms]' },
 ];
 
 export const SkillsSection = () => {
@@ -70,19 +79,52 @@ export const SkillsSection = () => {
             </div>
           </div>
 
-          {/* Floating Skills */}
-          <div className="relative flex flex-wrap justify-center gap-3 sm:gap-4 mt-8">
-            {floatingSkills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:shadow-lg ${
-                  isVisible ? `${skill.animation} ${skill.delay} ${skill.position}` : 'opacity-0'
-                }`}
-              >
-                <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
-                <span>{skill.name}</span>
-              </div>
-            ))}
+          {/* Floating Skills - 3 Rows */}
+          <div className="space-y-4 mt-8">
+            {/* Row 1 */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              {skillsRow1.map((skill) => (
+                <div
+                  key={skill.name}
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:shadow-lg ${skill.margin} ${
+                    isVisible ? `${skill.animation} ${skill.delay}` : 'opacity-0'
+                  }`}
+                >
+                  <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2 */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              {skillsRow2.map((skill) => (
+                <div
+                  key={skill.name}
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:shadow-lg ${skill.margin} ${
+                    isVisible ? `${skill.animation} ${skill.delay}` : 'opacity-0'
+                  }`}
+                >
+                  <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 3 */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              {skillsRow3.map((skill) => (
+                <div
+                  key={skill.name}
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:shadow-lg ${skill.margin} ${
+                    isVisible ? `${skill.animation} ${skill.delay}` : 'opacity-0'
+                  }`}
+                >
+                  <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
