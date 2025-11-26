@@ -9,16 +9,16 @@ export const ContactSection = () => {
     <section
       id="contact"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-section-dark py-20"
+      className="min-h-screen flex items-center justify-center bg-section-light py-20"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center space-y-12">
           {/* Headline */}
           <div className={`space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[hsl(var(--text-light-primary))]">
               Let's Connect
             </h2>
-            <p className="text-lg sm:text-xl text-[hsl(var(--text-dark-secondary))] max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[hsl(var(--text-light-secondary))] max-w-2xl mx-auto">
               Open to data science opportunities, research collaborations, and interesting
               conversations.
             </p>
@@ -34,10 +34,10 @@ export const ContactSection = () => {
               href="mailto:hala.arar.02@gmail.com"
               className="group flex flex-col items-center gap-3 transition-smooth"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
-                <Mail className="text-white hover:text-indigo transition-smooth" size={28} />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-light border-2 border-gray-200 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
+                <Mail className="text-[hsl(var(--text-light-primary))] hover:text-indigo transition-smooth" size={28} />
               </div>
-              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-indigo transition-colors">
+              <span className="text-sm text-[hsl(var(--text-light-secondary))] group-hover:text-indigo transition-colors">
                 Email
               </span>
             </a>
@@ -48,10 +48,10 @@ export const ContactSection = () => {
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-3 transition-smooth"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
-                <Github className="text-white hover:text-indigo transition-smooth" size={28} />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-light border-2 border-gray-200 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
+                <Github className="text-[hsl(var(--text-light-primary))] hover:text-indigo transition-smooth" size={28} />
               </div>
-              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-indigo transition-colors">
+              <span className="text-sm text-[hsl(var(--text-light-secondary))] group-hover:text-indigo transition-colors">
                 GitHub
               </span>
             </a>
@@ -62,10 +62,10 @@ export const ContactSection = () => {
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-3 transition-smooth"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
-                <Linkedin className="text-white hover:text-indigo transition-smooth" size={28} />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-light border-2 border-gray-200 flex items-center justify-center group-hover:border-indigo group-hover:glow-indigo transition-all">
+                <Linkedin className="text-[hsl(var(--text-light-primary))] hover:text-indigo transition-smooth" size={28} />
               </div>
-              <span className="text-sm text-[hsl(var(--text-dark-secondary))] group-hover:text-indigo transition-colors">
+              <span className="text-sm text-[hsl(var(--text-light-secondary))] group-hover:text-indigo transition-colors">
                 LinkedIn
               </span>
             </a>
@@ -102,11 +102,11 @@ export const ContactSection = () => {
 
           {/* Footer */}
           <div
-            className={`pt-12 border-t border-gray-800 ${
+            className={`pt-12 border-t border-gray-200 ${
               isVisible ? 'animate-fade-up stagger-4' : 'opacity-0'
             }`}
           >
-            <p className="text-sm text-[hsl(var(--text-dark-secondary))]">
+            <p className="text-sm text-[hsl(var(--text-light-secondary))]">
               © 2025 Hala Arar · Built with Lovable
             </p>
           </div>
