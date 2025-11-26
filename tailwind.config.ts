@@ -97,7 +97,7 @@ export default {
         },
         "gentle-float": {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-6px)" },
+          "50%": { transform: "translateY(-12px)" },
         },
       },
       animation: {
@@ -109,9 +109,9 @@ export default {
         "scale-in": "scale-in 0.25s ease-out",
         "slide-in-fade": "slide-in-fade 0.4s ease-out",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
-        "gentle-float-1": "gentle-float 3s ease-in-out infinite",
-        "gentle-float-2": "gentle-float 4s ease-in-out infinite",
-        "gentle-float-3": "gentle-float 3.5s ease-in-out infinite",
+        "gentle-float-1": "gentle-float 5s ease-in-out infinite",
+        "gentle-float-2": "gentle-float 7s ease-in-out infinite",
+        "gentle-float-3": "gentle-float 6s ease-in-out infinite",
       },
     },
   },
