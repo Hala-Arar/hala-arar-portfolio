@@ -53,7 +53,6 @@ export const PublicationsSection = () => {
               isVisible ? 'animate-fade-up stagger-3' : 'opacity-0'
             }`}
           >
-            More publications coming soon
           </p>
         </div>
       </div>
