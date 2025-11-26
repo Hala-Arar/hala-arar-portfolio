@@ -96,7 +96,7 @@ export const ContactSection = () => {
             }`}
           >
             <p className="text-sm text-[hsl(var(--text-light-secondary))]">
-              © 2025 Hala Arar · Built with Lovable
+              © 2025 Hala Arar 
             </p>
           </div>
         </div>
