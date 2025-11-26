@@ -8,28 +8,28 @@ const primaryLanguages = [
 
 // Row 1: 5 skills
 const skillsRow1 = [
-  { name: 'PyTorch', icon: '/skills/pytorch.svg', margin: 'ml-[-10px] mt-[2px]' },
-  { name: 'TensorFlow', icon: '/skills/tensorflow.svg', margin: 'ml-[15px] mt-[-3px]' },
-  { name: 'scikit-learn', icon: '/skills/sklearn.svg', margin: 'ml-[-8px] mt-[4px]' },
-  { name: 'Hugging Face', icon: '/skills/huggingface.svg', margin: 'ml-[18px] mt-[-2px]' },
-  { name: 'PubMedBERT', icon: '/skills/pubmed.svg', margin: 'ml-[-12px] mt-[3px]' },
+  { name: 'PyTorch', icon: '/skills/pytorch.svg' },
+  { name: 'TensorFlow', icon: '/skills/tensorflow.svg' },
+  { name: 'scikit-learn', icon: '/skills/sklearn.svg' },
+  { name: 'Hugging Face', icon: '/skills/huggingface.svg' },
+  { name: 'PubMedBERT', icon: '/skills/pubmed.svg' },
 ];
 
 // Row 2: 5 skills
 const skillsRow2 = [
-  { name: 'spaCy', icon: '/skills/spacy.svg', margin: 'ml-[12px] mt-[-4px]' },
-  { name: 'pandas', icon: '/skills/pandas.svg', margin: 'ml-[-15px] mt-[2px]' },
-  { name: 'NumPy', icon: '/skills/numpy.svg', margin: 'ml-[10px] mt-[3px]' },
-  { name: 'Plotly', icon: '/skills/plotly.svg', margin: 'ml-[-8px] mt-[-3px]' },
-  { name: 'AWS', icon: '/skills/aws.svg', margin: 'ml-[20px] mt-[4px]' },
+  { name: 'spaCy', icon: '/skills/spacy.svg' },
+  { name: 'pandas', icon: '/skills/pandas.svg' },
+  { name: 'NumPy', icon: '/skills/numpy.svg' },
+  { name: 'Plotly', icon: '/skills/plotly.svg' },
+  { name: 'AWS', icon: '/skills/aws.svg' },
 ];
 
 // Row 3: 4 skills
 const skillsRow3 = [
-  { name: 'Docker', icon: '/skills/docker.svg', margin: 'ml-[-6px] mt-[2px]' },
-  { name: 'Git', icon: '/skills/git.svg', margin: 'ml-[16px] mt-[-2px]' },
-  { name: 'GitHub Actions', icon: '/skills/github-actions.svg', margin: 'ml-[-10px] mt-[3px]' },
-  { name: 'Bash', icon: '/skills/bash.svg', margin: 'ml-[14px] mt-[-3px]' },
+  { name: 'Docker', icon: '/skills/docker.svg' },
+  { name: 'Git', icon: '/skills/git.svg' },
+  { name: 'GitHub Actions', icon: '/skills/github-actions.svg' },
+  { name: 'Bash', icon: '/skills/bash.svg' },
 ];
 
 export const SkillsSection = () => {
@@ -86,7 +86,7 @@ export const SkillsSection = () => {
               {skillsRow1.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${skill.margin} ${
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
                     isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
@@ -101,7 +101,7 @@ export const SkillsSection = () => {
               {skillsRow2.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${skill.margin} ${
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
                     isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
@@ -116,7 +116,7 @@ export const SkillsSection = () => {
               {skillsRow3.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${skill.margin} ${
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
                     isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
