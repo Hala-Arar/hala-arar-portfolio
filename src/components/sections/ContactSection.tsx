@@ -71,9 +71,9 @@ export const ContactSection = () => {
             </a>
           </div>
 
-          {/* Download Buttons */}
+          {/* Download Button */}
           <div
-            className={`flex flex-col sm:flex-row justify-center gap-4 ${
+            className={`flex justify-center ${
               isVisible ? 'animate-fade-up stagger-3' : 'opacity-0'
             }`}
           >
@@ -82,20 +82,9 @@ export const ContactSection = () => {
               className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth"
               asChild
             >
-              <a href="#" download>
+              <a href="/Hala_Arar_Resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-5 w-5" />
-                Download Resume
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-indigo text-indigo hover:bg-indigo hover:text-white"
-              asChild
-            >
-              <a href="#" download>
-                <Download className="mr-2 h-5 w-5" />
-                Download CV
+                View Resume
               </a>
             </Button>
           </div>
