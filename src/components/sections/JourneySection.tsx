@@ -10,6 +10,10 @@ interface TimelineEntry {
   period: string;
   description: string;
   logo: string;
+  isImage?: boolean;
+  logoScale?: number;
+  useContain?: boolean;
+  logoOffsetX?: string;
 }
 
 const timeline: TimelineEntry[] = [
@@ -18,10 +22,13 @@ const timeline: TimelineEntry[] = [
     role: 'Data Science Intern',
     company: 'University of Helsinki',
     location: 'Helsinki, Finland (Remote)',
-    period: 'May 2025 – Present',
+    period: 'April 2025 – Present',
     description:
       'Built PubMedBERT pipeline for SOORENA, processed 250K+ abstracts, developed Shiny app for researchers',
-    logo: '🏛️',
+    logo: '/logos/helsinki-logo.png',
+    isImage: true,
+    logoScale: 0.9,
+    logoOffsetX: '9%',
   },
   {
     side: 'left',
@@ -31,7 +38,11 @@ const timeline: TimelineEntry[] = [
     period: 'Jul 2025 – Oct 2025',
     description:
       'Developed XGBoost and LLM models for clinical gene variant classification using ACMG guidelines',
-    logo: '🎓',
+    logo: '/logos/UBC-logo.png',
+    isImage: true,
+    logoScale: 1.3,
+    useContain: true,
+    logoOffsetX: '3%',
   },
   {
     side: 'right',
@@ -41,17 +52,24 @@ const timeline: TimelineEntry[] = [
     period: 'Jul 2022 – Apr 2024',
     description:
       'Managed patient records, improved data accessibility, streamlined clinical workflows',
-    logo: '🦷',
+    logo: '/logos/PSD.png',
+    isImage: true,
+    logoScale: 1.3,
+    useContain: true,
+    logoOffsetX: '3%',
   },
   {
     side: 'left',
     role: 'Lab Technician Assistant',
     company: 'Trent University',
     location: 'Peterborough, ON',
-    period: 'Sep 2022 – Apr 2023',
+    period: 'Sep 2023 – Apr 2023',
     description:
       'Prepared lab equipment, developed digital inventory systems, supported research operations',
-    logo: '🔬',
+    logo:  '/logos/trent.png',
+    isImage: true,
+    logoScale: 1.1,
+    useContain: true,
   },
   {
     side: 'right',
@@ -61,7 +79,9 @@ const timeline: TimelineEntry[] = [
     period: 'Summers 2020-2021',
     description:
       'Led environmental education programs, managed teams, organized community events',
-    logo: '🌲',
+    logo:  '/logos/OFAH.png',
+    isImage: true,
+    logoScale: 1.1,
   },
   {
     side: 'left',
@@ -71,7 +91,10 @@ const timeline: TimelineEntry[] = [
     period: '2018-2020',
     description:
       'Trained new employees, optimized workflows, maintained quality standards',
-    logo: '🍔',
+    logo: "/logos/McDonald's_logo.png",
+    isImage: true,
+    logoScale: 1.1,
+    useContain: true,
   },
   {
     side: 'right',
@@ -80,7 +103,10 @@ const timeline: TimelineEntry[] = [
     location: 'Peterborough, ON',
     period: 'Summer 2019',
     description: 'Mentored youth in outdoor activities, coordinated group events',
-    logo: '⛺',
+    logo: '/logos/trent.png',
+    isImage: true,
+    logoScale: 1.1,
+    useContain: true,
   },
 ];
 
@@ -96,17 +122,23 @@ const education = [
       'Cloud Systems',
     ],
     highlight: 'Capstone: SOORENA (University of Helsinki)',
+    logo: '/logos/UBC-logo.png',
+    logoScale: 1.4,
+    useContain: true,
+    logoOffsetX: '11%',
   },
   {
     degree: 'Bachelor of Science, Biomedical Sciences',
     school: 'Trent University',
     period: '2020 – 2024',
     details: [
-      'Minor in Mathematics',
       "Dean's Honour Roll",
       'Renewable Entrance Scholarship',
     ],
-    highlight: '',
+    highlight: 'Minor in Mathematics',
+    logo: '/logos/trent.png',
+    logoScale: 1.1,
+    useContain: true,
   },
 ];
 
@@ -181,8 +213,19 @@ export const JourneySection = () => {
                     // LEFT SIDE ENTRY: Logo on left, card on right of center
                     <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-center lg:pr-[calc(50%+3rem)]">
                       {/* Logo on LEFT side */}
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-4xl sm:text-5xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
-                        {entry.logo}
+                      <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? '' : 'text-4xl sm:text-5xl'}`}>
+                        {entry.isImage ? (
+                          <img
+                            src={entry.logo}
+                            alt={`${entry.company} logo`}
+                            className={`w-full h-full ${entry.useContain ? 'object-contain p-3' : 'object-cover'}`}
+                            style={{
+                              transform: `scale(${entry.logoScale || 1.5}) translateX(${entry.logoOffsetX || '0'})`
+                            }}
+                          />
+                        ) : (
+                          entry.logo
+                        )}
                       </div>
                       
                       {/* Card content */}
@@ -229,8 +272,19 @@ export const JourneySection = () => {
                       </div>
                       
                       {/* Logo on RIGHT side */}
-                      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center text-4xl sm:text-5xl glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0">
-                        {entry.logo}
+                      <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? '' : 'text-4xl sm:text-5xl'}`}>
+                        {entry.isImage ? (
+                          <img
+                            src={entry.logo}
+                            alt={`${entry.company} logo`}
+                            className={`w-full h-full ${entry.useContain ? 'object-contain p-3' : 'object-cover'}`}
+                            style={{
+                              transform: `scale(${entry.logoScale || 1.5}) translateX(${entry.logoOffsetX || '0'})`
+                            }}
+                          />
+                        ) : (
+                          entry.logo
+                        )}
                       </div>
                     </div>
                   )}
@@ -251,8 +305,17 @@ export const JourneySection = () => {
                 }`}
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-surface-dark border-4 border-indigo flex items-center justify-center glow-indigo-strong flex-shrink-0">
-                    <GraduationCap className="text-indigo" size={32} />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border-4 border-indigo flex items-center justify-center glow-indigo-strong flex-shrink-0 overflow-hidden">
+                    {edu.logo ? (
+                      <img
+                        src={edu.logo}
+                        alt={`${edu.school} logo`}
+                        className="w-full h-full object-contain p-3"
+                        style={{ transform: `scale(${edu.logoScale || 1.0})` }}
+                      />
+                    ) : (
+                      <GraduationCap className="text-indigo" size={32} />
+                    )}
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-1">
