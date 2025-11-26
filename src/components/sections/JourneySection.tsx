@@ -175,11 +175,11 @@ export const JourneySection = () => {
     <section
       id="journey"
       ref={ref}
-      className="flex items-center justify-center bg-section-light py-12"
+      className="min-h-screen flex items-center justify-center bg-section-light py-20"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-8 lg:mb-10 ${
+          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-16 lg:mb-20 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
@@ -194,7 +194,7 @@ export const JourneySection = () => {
           />
 
           {/* Timeline Entries */}
-          <div className="space-y-2 lg:space-y-3">
+          <div className="space-y-8 lg:space-y-10">
             {timeline.map((entry, index) => {
               return (
                 <div
@@ -211,9 +211,9 @@ export const JourneySection = () => {
 
                   {entry.side === 'left' ? (
                     // LEFT SIDE ENTRY: Logo on left, card on right of center
-                    <div className="grid lg:grid-cols-[auto_1fr] gap-3 lg:gap-4 items-center lg:pr-[calc(50%+3rem)]">
+                    <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-center lg:pr-[calc(50%+3rem)]">
                       {/* Logo on LEFT side */}
-                      <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? '' : 'text-3xl sm:text-4xl'}`}>
+                      <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? '' : 'text-4xl sm:text-5xl'}`}>
                         {entry.isImage ? (
                           <img
                             src={entry.logo}
@@ -229,50 +229,50 @@ export const JourneySection = () => {
                       </div>
                       
                       {/* Card content */}
-                      <div className="bg-surface-light border border-gray-200 rounded-lg p-3 hover:border-indigo transition-smooth hover:glow-indigo">
-                        <h3 className="text-base font-bold text-[hsl(var(--text-light-primary))] mb-0.5">
+                      <div className="bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                        <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-1">
                           {entry.role}
                         </h3>
-                        <div className="text-indigo font-semibold text-sm mb-0.5">
+                        <div className="text-indigo font-semibold mb-1">
                           {entry.company}
                         </div>
-                        <div className="text-xs text-[hsl(var(--text-light-secondary))] mb-1">
+                        <div className="text-sm text-[hsl(var(--text-light-secondary))] mb-2">
                           {entry.period}
                         </div>
-                        <div className="flex items-center gap-1 text-xs text-[hsl(var(--text-light-secondary))] mb-2">
-                          <MapPin size={12} />
+                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-light-secondary))] mb-3">
+                          <MapPin size={14} />
                           <span>{entry.location}</span>
                         </div>
-                        <p className="text-xs text-[hsl(var(--text-light-secondary))] leading-relaxed">
+                        <p className="text-sm text-[hsl(var(--text-light-secondary))] leading-relaxed">
                           {entry.description}
                         </p>
                       </div>
                     </div>
                   ) : (
                     // RIGHT SIDE ENTRY: Card on left of center, logo on right
-                    <div className="grid lg:grid-cols-[1fr_auto] gap-3 lg:gap-4 items-center lg:pl-[calc(50%+3rem)]">
+                    <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center lg:pl-[calc(50%+3rem)]">
                       {/* Card content */}
-                      <div className="bg-surface-light border border-gray-200 rounded-lg p-3 hover:border-indigo transition-smooth hover:glow-indigo">
-                        <h3 className="text-base font-bold text-[hsl(var(--text-light-primary))] mb-0.5">
+                      <div className="bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                        <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-1">
                           {entry.role}
                         </h3>
-                        <div className="text-indigo font-semibold text-sm mb-0.5">
+                        <div className="text-indigo font-semibold mb-1">
                           {entry.company}
                         </div>
-                        <div className="text-xs text-[hsl(var(--text-light-secondary))] mb-1">
+                        <div className="text-sm text-[hsl(var(--text-light-secondary))] mb-2">
                           {entry.period}
                         </div>
-                        <div className="flex items-center gap-1 text-xs text-[hsl(var(--text-light-secondary))] mb-2">
-                          <MapPin size={12} />
+                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-light-secondary))] mb-3">
+                          <MapPin size={14} />
                           <span>{entry.location}</span>
                         </div>
-                        <p className="text-xs text-[hsl(var(--text-light-secondary))] leading-relaxed">
+                        <p className="text-sm text-[hsl(var(--text-light-secondary))] leading-relaxed">
                           {entry.description}
                         </p>
                       </div>
                       
                       {/* Logo on RIGHT side */}
-                      <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? '' : 'text-3xl sm:text-4xl'}`}>
+                      <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? '' : 'text-4xl sm:text-5xl'}`}>
                         {entry.isImage ? (
                           <img
                             src={entry.logo}
@@ -295,17 +295,17 @@ export const JourneySection = () => {
         </div>
 
         {/* Education Cards */}
-        <div className="max-w-5xl mx-auto mt-6 lg:mt-8">
-          <div className="grid md:grid-cols-2 gap-4">
+        <div className="max-w-5xl mx-auto mt-12 lg:mt-16">
+          <div className="grid md:grid-cols-2 gap-8">
             {education.map((edu, index) => (
               <div
                 key={index}
-                className={`bg-surface-light border border-gray-200 rounded-lg p-3 hover:border-indigo transition-smooth hover:glow-indigo ${
+                className={`bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo ${
                   isVisible ? `animate-scale-in stagger-${index + 6}` : 'opacity-0'
                 }`}
               >
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white border-2 border-indigo flex items-center justify-center glow-indigo-strong flex-shrink-0 overflow-hidden">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border-4 border-indigo flex items-center justify-center glow-indigo-strong flex-shrink-0 overflow-hidden">
                     {edu.logo ? (
                       <img
                         src={edu.logo}
@@ -318,23 +318,23 @@ export const JourneySection = () => {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-[hsl(var(--text-light-primary))] mb-0.5">
+                    <h3 className="text-lg font-bold text-[hsl(var(--text-light-primary))] mb-1">
                       {edu.degree}
                     </h3>
-                    <div className="text-indigo font-semibold text-sm mb-0.5">
+                    <div className="text-indigo font-semibold text-sm mb-1">
                       {edu.school}
                     </div>
-                    <div className="text-xs text-[hsl(var(--text-light-secondary))]">
+                    <div className="text-sm text-[hsl(var(--text-light-secondary))]">
                       {edu.period}
                     </div>
                   </div>
                 </div>
-                <div className="space-y-1">
-                  <p className="text-xs text-[hsl(var(--text-light-secondary))]">
+                <div className="space-y-2">
+                  <p className="text-sm text-[hsl(var(--text-light-secondary))]">
                     {edu.details.join(' · ')}
                   </p>
                   {edu.highlight && (
-                    <p className="text-xs text-indigo font-medium">{edu.highlight}</p>
+                    <p className="text-sm text-indigo font-medium">{edu.highlight}</p>
                   )}
                 </div>
               </div>
