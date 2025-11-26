@@ -8,28 +8,28 @@ const primaryLanguages = [
 
 // Row 1: 5 skills
 const skillsRow1 = [
-  { name: 'PyTorch', icon: '/skills/pytorch.svg', margin: 'ml-[-15px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:0ms]' },
-  { name: 'TensorFlow', icon: '/skills/tensorflow.svg', margin: 'ml-[20px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:400ms]' },
-  { name: 'scikit-learn', icon: '/skills/sklearn.svg', margin: 'ml-[-10px]', animation: 'animate-gentle-float-3', delay: '[animation-delay:800ms]' },
-  { name: 'Hugging Face', icon: '/skills/huggingface.svg', margin: 'ml-[25px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:1200ms]' },
-  { name: 'PubMedBERT', icon: '/skills/pubmed.svg', margin: 'ml-[-18px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:600ms]' },
+  { name: 'PyTorch', icon: '/skills/pytorch.svg', margin: 'ml-[-10px] mt-[2px]' },
+  { name: 'TensorFlow', icon: '/skills/tensorflow.svg', margin: 'ml-[15px] mt-[-3px]' },
+  { name: 'scikit-learn', icon: '/skills/sklearn.svg', margin: 'ml-[-8px] mt-[4px]' },
+  { name: 'Hugging Face', icon: '/skills/huggingface.svg', margin: 'ml-[18px] mt-[-2px]' },
+  { name: 'PubMedBERT', icon: '/skills/pubmed.svg', margin: 'ml-[-12px] mt-[3px]' },
 ];
 
 // Row 2: 5 skills
 const skillsRow2 = [
-  { name: 'spaCy', icon: '/skills/spacy.svg', margin: 'ml-[18px]', animation: 'animate-gentle-float-3', delay: '[animation-delay:1600ms]' },
-  { name: 'pandas', icon: '/skills/pandas.svg', margin: 'ml-[-22px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:200ms]' },
-  { name: 'NumPy', icon: '/skills/numpy.svg', margin: 'ml-[15px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:1000ms]' },
-  { name: 'Plotly', icon: '/skills/plotly.svg', margin: 'ml-[-12px]', animation: 'animate-gentle-float-3', delay: '[animation-delay:1400ms]' },
-  { name: 'AWS', icon: '/skills/aws.svg', margin: 'ml-[28px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:1800ms]' },
+  { name: 'spaCy', icon: '/skills/spacy.svg', margin: 'ml-[12px] mt-[-4px]' },
+  { name: 'pandas', icon: '/skills/pandas.svg', margin: 'ml-[-15px] mt-[2px]' },
+  { name: 'NumPy', icon: '/skills/numpy.svg', margin: 'ml-[10px] mt-[3px]' },
+  { name: 'Plotly', icon: '/skills/plotly.svg', margin: 'ml-[-8px] mt-[-3px]' },
+  { name: 'AWS', icon: '/skills/aws.svg', margin: 'ml-[20px] mt-[4px]' },
 ];
 
 // Row 3: 4 skills
 const skillsRow3 = [
-  { name: 'Docker', icon: '/skills/docker.svg', margin: 'ml-[-8px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:500ms]' },
-  { name: 'Git', icon: '/skills/git.svg', margin: 'ml-[22px]', animation: 'animate-gentle-float-3', delay: '[animation-delay:900ms]' },
-  { name: 'GitHub Actions', icon: '/skills/github-actions.svg', margin: 'ml-[-15px]', animation: 'animate-gentle-float-1', delay: '[animation-delay:1300ms]' },
-  { name: 'Bash', icon: '/skills/bash.svg', margin: 'ml-[18px]', animation: 'animate-gentle-float-2', delay: '[animation-delay:1700ms]' },
+  { name: 'Docker', icon: '/skills/docker.svg', margin: 'ml-[-6px] mt-[2px]' },
+  { name: 'Git', icon: '/skills/git.svg', margin: 'ml-[16px] mt-[-2px]' },
+  { name: 'GitHub Actions', icon: '/skills/github-actions.svg', margin: 'ml-[-10px] mt-[3px]' },
+  { name: 'Bash', icon: '/skills/bash.svg', margin: 'ml-[14px] mt-[-3px]' },
 ];
 
 export const SkillsSection = () => {
@@ -79,15 +79,15 @@ export const SkillsSection = () => {
             </div>
           </div>
 
-          {/* Floating Skills - 3 Rows */}
-          <div className="space-y-4 mt-8">
+          {/* Skills - 3 Rows */}
+          <div className="space-y-3 mt-8">
             {/* Row 1 */}
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
               {skillsRow1.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:shadow-lg ${skill.margin} ${
-                    isVisible ? `${skill.animation} ${skill.delay}` : 'opacity-0'
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${skill.margin} ${
+                    isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
                   <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
@@ -101,8 +101,8 @@ export const SkillsSection = () => {
               {skillsRow2.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:shadow-lg ${skill.margin} ${
-                    isVisible ? `${skill.animation} ${skill.delay}` : 'opacity-0'
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${skill.margin} ${
+                    isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
                   <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
@@ -116,8 +116,8 @@ export const SkillsSection = () => {
               {skillsRow3.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:shadow-lg ${skill.margin} ${
-                    isVisible ? `${skill.animation} ${skill.delay}` : 'opacity-0'
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${skill.margin} ${
+                    isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
                   <img src={skill.icon} alt={`${skill.name} logo`} className="w-5 h-5 object-contain" />
