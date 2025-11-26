@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { ExternalLink, Github, X } from 'lucide-react';
+import { ExternalLink, Github, X, Dna, BarChart3, Terminal, FileText, Calculator, TrendingUp, Beaker, BookOpen, LucideIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface Project {
@@ -10,7 +10,7 @@ interface Project {
   tech: string[];
   githubUrl?: string;
   liveUrl?: string;
-  emoji: string;
+  icon: LucideIcon;
 }
 
 const projects: Project[] = [
@@ -20,7 +20,7 @@ const projects: Project[] = [
     fullDescription:
       'Developed machine learning models combining XGBoost and Large Language Models to classify genetic variants according to ACMG guidelines. This research project demonstrated high accuracy in clinical variant interpretation for diagnostic applications.',
     tech: ['Python', 'XGBoost', 'LLMs', 'ACMG Guidelines'],
-    emoji: '🧬',
+    icon: Dna,
   },
   {
     title: 'NYPD Arrest Tracker',
@@ -29,7 +29,7 @@ const projects: Project[] = [
       'Built a comprehensive dashboard for NYC government executives to visualize arrest data across boroughs and precincts. Features interactive geospatial visualizations, time-series analysis, and demographic breakdowns to inform policy decisions.',
     tech: ['Python', 'Plotly', 'Pandas', 'Dash', 'GeoPandas'],
     githubUrl: 'https://github.com/UBC-MDS/DSCI-532_2025_22_nyc-arrest-tracker',
-    emoji: '🗽',
+    icon: BarChart3,
   },
   {
     title: 'Gander LLM CLI',
@@ -38,7 +38,7 @@ const projects: Project[] = [
       'Designed a lightweight CLI interface for interacting with Large Language Models, featuring modular prompts, structured output validation with Pydantic, citation tracking, and seamless integration for practical workflows.',
     tech: ['Python', 'OpenAI API', 'Pydantic', 'CLI'],
     githubUrl: 'https://github.com/halaarar/gander-llm-cli',
-    emoji: '🦆',
+    icon: Terminal,
   },
   {
     title: 'Lab Results Parser',
@@ -47,7 +47,7 @@ const projects: Project[] = [
       'Created a user-friendly desktop application to parse laboratory results from PDF files into structured, searchable data. Includes standalone packaging for distribution to non-technical users in clinical settings.',
     tech: ['Python', 'PyQt5', 'PDF Parsing', 'GUI'],
     githubUrl: 'https://github.com/halaarar/lab-results-parser',
-    emoji: '🧪',
+    icon: FileText,
   },
   {
     title: 'Health Science Calculator',
@@ -56,7 +56,7 @@ const projects: Project[] = [
       'Developed a validated Python package for calculating common health science metrics including TDEE, BMR, and BMI. Built with comprehensive test coverage and industry-standard formulas for accuracy.',
     tech: ['Python', 'pytest', 'Package Development'],
     githubUrl: 'https://github.com/UBC-MDS/HealthScienceCalculator',
-    emoji: '💪',
+    icon: Calculator,
   },
   {
     title: 'Bank Marketing Predictions',
@@ -65,7 +65,7 @@ const projects: Project[] = [
       'Built and optimized machine learning models to predict customer conversion for bank marketing campaigns. Achieved a 20% improvement in precision through feature engineering, hyperparameter tuning, and ensemble methods.',
     tech: ['Python', 'scikit-learn', 'Feature Engineering'],
     githubUrl: 'https://github.com/halaarar',
-    emoji: '🏦',
+    icon: TrendingUp,
   },
   {
     title: 'Natural Antibiotics Study',
@@ -73,7 +73,7 @@ const projects: Project[] = [
     fullDescription:
       'Led a self-directed experimental study investigating the antibacterial properties of honey and tea tree oil. Designed the full experimental workflow, performed bacterial culture and CFU counting, and conducted statistical analysis in R using linear models and ANOVA.',
     tech: ['R', 'Experimental Design', 'ANOVA', 'Statistics'],
-    emoji: '🍯',
+    icon: Beaker,
   },
   {
     title: 'Data Science Starter Kit Blog',
@@ -82,7 +82,7 @@ const projects: Project[] = [
       'Created a beginner-friendly educational blog introducing fundamental concepts in version control, Git workflows, branching strategies, and collaboration best practices. Includes video demonstrations and hands-on tutorials.',
     tech: ['Markdown', 'Git', 'Technical Writing'],
     githubUrl: 'https://github.com/halaarar/Data-Science-Starter-Kit-Blog',
-    emoji: '📚',
+    icon: BookOpen,
   },
 ];
 
@@ -126,7 +126,7 @@ export const ProjectsSection = () => {
                   isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
                 }`}
               >
-                <div className="text-4xl mb-4">{project.emoji}</div>
+                <project.icon className="w-10 h-10 mb-4 text-indigo" strokeWidth={1.5} />
                 <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo transition-colors">
                   {project.title}
                 </h3>
@@ -168,7 +168,7 @@ export const ProjectsSection = () => {
               {/* Header */}
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <div className="text-5xl mb-4">{selectedProject.emoji}</div>
+                  <selectedProject.icon className="w-12 h-12 mb-4 text-indigo" strokeWidth={1.5} />
                   <h3 className="text-2xl sm:text-3xl font-bold text-white">
                     {selectedProject.title}
                   </h3>
