@@ -12,11 +12,11 @@ import { ContactSection } from '@/components/sections/ContactSection';
 
 const sections = [
   { id: 'hero', label: 'Home' },
-  { id: 'skills', label: 'Skills' },
   { id: 'soorena', label: 'SOORENA' },
   { id: 'projects', label: 'Projects' },
   { id: 'journey', label: 'Journey' },
   { id: 'publications', label: 'Publications' },
+  { id: 'skills', label: 'Skills' },
   { id: 'beyond', label: 'Beyond' },
   { id: 'contact', label: 'Contact' },
 ];
@@ -31,11 +31,11 @@ const Index = () => {
       
       <main className="scroll-smooth">
         <HeroSection />
-        <SkillsSection />
         <FeaturedProjectSection />
         <ProjectsSection />
         <JourneySection />
         <PublicationsSection />
+        <SkillsSection />
         <BeyondTheCodeSection />
         <ContactSection />
       </main>

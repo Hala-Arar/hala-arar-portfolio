@@ -50,11 +50,11 @@ export const SkillsSection = () => {
     <section
       id="skills"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-section-light py-20"
+      className="flex items-center justify-center bg-section-light py-12"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-12 ${
+          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-6 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
@@ -63,15 +63,15 @@ export const SkillsSection = () => {
 
         <div className="max-w-6xl mx-auto">
           {/* Primary Languages - Highlighted */}
-          <div className="mb-12">
+          <div className="mb-6">
             <p
-              className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-8 ${
+              className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-4 ${
                 isVisible ? 'animate-fade-up stagger-1' : 'opacity-0'
               }`}
             >
               Primary Languages
             </p>
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-16">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-8">
               {primaryLanguages.map((skill, index) => (
                 <div
                   key={skill.name}
@@ -79,7 +79,7 @@ export const SkillsSection = () => {
                     isVisible ? `animate-float-in stagger-${index + 2}` : 'opacity-0'
                   }`}
                 >
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center bg-surface-light border-2 border-indigo rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:glow-indigo">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-surface-light border-2 border-indigo rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:glow-indigo">
                     <img src={skill.icon} alt={`${skill.name} logo`} className="w-full h-full object-contain" />
                   </div>
                   <span className="text-base sm:text-lg font-bold text-[hsl(var(--text-light-primary))] group-hover:text-indigo transition-colors">
@@ -91,11 +91,11 @@ export const SkillsSection = () => {
           </div>
 
           {/* Categorized Skills */}
-          <div className="space-y-12">
+          <div className="space-y-6">
             {skillCategories.map((category, categoryIndex) => (
               <div key={category.title}>
                 <p
-                  className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-6 ${
+                  className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-3 ${
                     isVisible ? `animate-fade-up stagger-${categoryIndex + 5}` : 'opacity-0'
                   }`}
                 >
