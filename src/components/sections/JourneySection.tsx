@@ -175,11 +175,11 @@ export const JourneySection = () => {
     <section
       id="journey"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-section-light py-20"
+      className="flex items-center justify-center bg-section-light py-12"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-16 lg:mb-20 ${
+          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-8 lg:mb-10 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
@@ -194,7 +194,7 @@ export const JourneySection = () => {
           />
 
           {/* Timeline Entries */}
-          <div className="space-y-8 lg:space-y-10">
+          <div className="space-y-4 lg:space-y-6">
             {timeline.map((entry, index) => {
               return (
                 <div
@@ -229,7 +229,7 @@ export const JourneySection = () => {
                       </div>
                       
                       {/* Card content */}
-                      <div className="bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                      <div className="bg-surface-light border border-gray-200 rounded-xl p-5 hover:border-indigo transition-smooth hover:glow-indigo">
                         <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-1">
                           {entry.role}
                         </h3>
@@ -252,7 +252,7 @@ export const JourneySection = () => {
                     // RIGHT SIDE ENTRY: Card on left of center, logo on right
                     <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center lg:pl-[calc(50%+3rem)]">
                       {/* Card content */}
-                      <div className="bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                      <div className="bg-surface-light border border-gray-200 rounded-xl p-5 hover:border-indigo transition-smooth hover:glow-indigo">
                         <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-1">
                           {entry.role}
                         </h3>
@@ -295,12 +295,12 @@ export const JourneySection = () => {
         </div>
 
         {/* Education Cards */}
-        <div className="max-w-5xl mx-auto mt-12 lg:mt-16">
-          <div className="grid md:grid-cols-2 gap-8">
+        <div className="max-w-5xl mx-auto mt-8 lg:mt-10">
+          <div className="grid md:grid-cols-2 gap-6">
             {education.map((edu, index) => (
               <div
                 key={index}
-                className={`bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo ${
+                className={`bg-surface-light border border-gray-200 rounded-xl p-5 hover:border-indigo transition-smooth hover:glow-indigo ${
                   isVisible ? `animate-scale-in stagger-${index + 6}` : 'opacity-0'
                 }`}
               >
