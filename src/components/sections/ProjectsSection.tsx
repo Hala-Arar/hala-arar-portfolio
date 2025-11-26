@@ -122,7 +122,7 @@ export const ProjectsSection = () => {
               <button
                 key={project.title}
                 onClick={() => setSelectedProject(project)}
-                className={`group bg-surface-dark border border-gray-800 rounded-xl p-6 text-left transition-all duration-300 hover:border-indigo hover:shadow-lg hover:-translate-y-2 hover:glow-indigo hover:rotate-1 ${
+                className={`group bg-white/5 backdrop-blur-sm border border-white/10 shadow-lg shadow-black/20 rounded-xl p-6 text-left transition-all duration-300 hover:bg-white/10 hover:border-indigo hover:shadow-xl hover:-translate-y-2 hover:glow-indigo hover:rotate-1 ${
                   isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
                 }`}
               >
@@ -137,13 +137,13 @@ export const ProjectsSection = () => {
                   {project.tech.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs px-2 py-1 bg-gray-800 text-[hsl(var(--text-dark-secondary))] rounded"
+                      className="text-xs px-2 py-1 bg-white/10 text-[hsl(var(--text-dark-secondary))] rounded"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className="text-xs px-2 py-1 bg-gray-800 text-[hsl(var(--text-dark-secondary))] rounded">
+                    <span className="text-xs px-2 py-1 bg-white/10 text-[hsl(var(--text-dark-secondary))] rounded">
                       +{project.tech.length - 3}
                     </span>
                   )}
@@ -161,7 +161,7 @@ export const ProjectsSection = () => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-surface-dark rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-modal-slide-up border border-gray-800"
+            className="bg-gray-900/95 backdrop-blur-xl rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-modal-slide-up border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6 sm:p-8">
@@ -196,7 +196,7 @@ export const ProjectsSection = () => {
                   {selectedProject.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-800 text-white text-sm rounded-full"
+                      className="px-3 py-1 bg-white/10 text-white text-sm rounded-full"
                     >
                       {tech}
                     </span>
