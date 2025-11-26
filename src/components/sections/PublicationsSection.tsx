@@ -31,7 +31,8 @@ export const PublicationsSection = () => {
               Biomedical Literature
             </h3>
             <p className="text-base text-[hsl(var(--text-dark-secondary))] mb-2">
-              Arar, H., He, Z., Zhou, Y., Zhang, M., Nickchi, P., & Jafari, M. (2025)
+              Arar, H., Aldahdooh, J., Nickchi, P., & Jafari, M. (2025). SOORENA: Self-lOOp containing or autoREgulatory
+              Nodes in biological network Analysis. bioRxiv. https://doi.org/10.1101/2025.11.03.685842
             </p>
             <p className="text-sm italic text-[hsl(var(--text-dark-secondary))] mb-6">bioRxiv (preprint)</p>
             <Button variant="outline" className="border-indigo text-indigo hover:bg-indigo hover:text-white" asChild>
