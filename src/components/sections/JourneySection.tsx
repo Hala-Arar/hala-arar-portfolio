@@ -175,11 +175,11 @@ export const JourneySection = () => {
     <section
       id="journey"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-section-dark py-20"
+      className="min-h-screen flex items-center justify-center bg-section-light py-20"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-white mb-16 lg:mb-20 ${
+          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-16 lg:mb-20 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
@@ -229,21 +229,21 @@ export const JourneySection = () => {
                       </div>
                       
                       {/* Card content */}
-                      <div className="bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
-                        <h3 className="text-xl font-bold text-white mb-1">
+                      <div className="bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                        <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-1">
                           {entry.role}
                         </h3>
                         <div className="text-indigo font-semibold mb-1">
                           {entry.company}
                         </div>
-                        <div className="text-sm text-gray-400 mb-2">
+                        <div className="text-sm text-[hsl(var(--text-light-secondary))] mb-2">
                           {entry.period}
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
+                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-light-secondary))] mb-3">
                           <MapPin size={14} />
                           <span>{entry.location}</span>
                         </div>
-                        <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
+                        <p className="text-sm text-[hsl(var(--text-light-secondary))] leading-relaxed">
                           {entry.description}
                         </p>
                       </div>
@@ -252,21 +252,21 @@ export const JourneySection = () => {
                     // RIGHT SIDE ENTRY: Card on left of center, logo on right
                     <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center lg:pl-[calc(50%+3rem)]">
                       {/* Card content */}
-                      <div className="bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
-                        <h3 className="text-xl font-bold text-white mb-1">
+                      <div className="bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo">
+                        <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-1">
                           {entry.role}
                         </h3>
                         <div className="text-indigo font-semibold mb-1">
                           {entry.company}
                         </div>
-                        <div className="text-sm text-gray-400 mb-2">
+                        <div className="text-sm text-[hsl(var(--text-light-secondary))] mb-2">
                           {entry.period}
                         </div>
-                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-dark-secondary))] mb-3">
+                        <div className="flex items-center gap-1 text-sm text-[hsl(var(--text-light-secondary))] mb-3">
                           <MapPin size={14} />
                           <span>{entry.location}</span>
                         </div>
-                        <p className="text-sm text-[hsl(var(--text-dark-secondary))] leading-relaxed">
+                        <p className="text-sm text-[hsl(var(--text-light-secondary))] leading-relaxed">
                           {entry.description}
                         </p>
                       </div>
@@ -300,7 +300,7 @@ export const JourneySection = () => {
             {education.map((edu, index) => (
               <div
                 key={index}
-                className={`bg-surface-dark border border-gray-800 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo ${
+                className={`bg-surface-light border border-gray-200 rounded-xl p-6 hover:border-indigo transition-smooth hover:glow-indigo ${
                   isVisible ? `animate-scale-in stagger-${index + 6}` : 'opacity-0'
                 }`}
               >
@@ -318,19 +318,19 @@ export const JourneySection = () => {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white mb-1">
+                    <h3 className="text-lg font-bold text-[hsl(var(--text-light-primary))] mb-1">
                       {edu.degree}
                     </h3>
                     <div className="text-indigo font-semibold text-sm mb-1">
                       {edu.school}
                     </div>
-                    <div className="text-sm text-[hsl(var(--text-dark-secondary))]">
+                    <div className="text-sm text-[hsl(var(--text-light-secondary))]">
                       {edu.period}
                     </div>
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-[hsl(var(--text-dark-secondary))]">
+                  <p className="text-sm text-[hsl(var(--text-light-secondary))]">
                     {edu.details.join(' · ')}
                   </p>
                   {edu.highlight && (

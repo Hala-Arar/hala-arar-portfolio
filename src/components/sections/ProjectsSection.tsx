@@ -94,19 +94,19 @@ export const ProjectsSection = () => {
     <section
       id="projects"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-section-light py-20"
+      className="min-h-screen flex items-center justify-center bg-section-dark py-20"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
           <h2
-            className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-[hsl(var(--text-light-primary))] mb-4 ${
+            className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 ${
               isVisible ? 'animate-fade-up' : 'opacity-0'
             }`}
           >
             More Projects
           </h2>
           <p
-            className={`text-lg text-[hsl(var(--text-light-secondary))] ${
+            className={`text-lg text-[hsl(var(--text-dark-secondary))] ${
               isVisible ? 'animate-fade-up stagger-1' : 'opacity-0'
             }`}
           >
@@ -122,28 +122,28 @@ export const ProjectsSection = () => {
               <button
                 key={project.title}
                 onClick={() => setSelectedProject(project)}
-                className={`group bg-surface-light border border-gray-200 rounded-xl p-6 text-left transition-all duration-300 hover:border-indigo hover:shadow-lg hover:-translate-y-2 hover:glow-indigo hover:rotate-1 ${
+                className={`group bg-surface-dark border border-gray-800 rounded-xl p-6 text-left transition-all duration-300 hover:border-indigo hover:shadow-lg hover:-translate-y-2 hover:glow-indigo hover:rotate-1 ${
                   isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
                 }`}
               >
                 <div className="text-4xl mb-4">{project.emoji}</div>
-                <h3 className="text-lg font-bold text-[hsl(var(--text-light-primary))] mb-2 group-hover:text-indigo transition-colors">
+                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm text-[hsl(var(--text-light-secondary))] mb-4">
+                <p className="text-sm text-[hsl(var(--text-dark-secondary))] mb-4">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs px-2 py-1 bg-gray-100 text-[hsl(var(--text-light-secondary))] rounded"
+                      className="text-xs px-2 py-1 bg-gray-800 text-[hsl(var(--text-dark-secondary))] rounded"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className="text-xs px-2 py-1 bg-gray-100 text-[hsl(var(--text-light-secondary))] rounded">
+                    <span className="text-xs px-2 py-1 bg-gray-800 text-[hsl(var(--text-dark-secondary))] rounded">
                       +{project.tech.length - 3}
                     </span>
                   )}
@@ -161,7 +161,7 @@ export const ProjectsSection = () => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-surface-light rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-modal-slide-up"
+            className="bg-surface-dark rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-modal-slide-up border border-gray-800"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6 sm:p-8">
@@ -169,13 +169,13 @@ export const ProjectsSection = () => {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <div className="text-5xl mb-4">{selectedProject.emoji}</div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[hsl(var(--text-light-primary))]">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
                     {selectedProject.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="text-[hsl(var(--text-light-secondary))] hover:text-[hsl(var(--text-light-primary))] transition-colors"
+                  className="text-[hsl(var(--text-dark-secondary))] hover:text-white transition-colors"
                   aria-label="Close modal"
                 >
                   <X size={24} />
@@ -183,20 +183,20 @@ export const ProjectsSection = () => {
               </div>
 
               {/* Content */}
-              <p className="text-base text-[hsl(var(--text-light-primary))] mb-6 leading-relaxed">
+              <p className="text-base text-[hsl(var(--text-dark-secondary))] mb-6 leading-relaxed">
                 {selectedProject.fullDescription}
               </p>
 
               {/* Tech Stack */}
               <div className="mb-6">
-                <h4 className="text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-3">
+                <h4 className="text-sm font-semibold text-[hsl(var(--text-dark-secondary))] uppercase tracking-wider mb-3">
                   Tech Stack
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-100 text-[hsl(var(--text-light-primary))] text-sm rounded-full"
+                      className="px-3 py-1 bg-gray-800 text-white text-sm rounded-full"
                     >
                       {tech}
                     </span>

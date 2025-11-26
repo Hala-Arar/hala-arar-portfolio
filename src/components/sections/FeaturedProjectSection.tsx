@@ -16,7 +16,7 @@ export const FeaturedProjectSection = () => {
     <section
       id="soorena"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-section-dark py-20"
+      className="min-h-screen flex items-center justify-center bg-section-light py-20"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -25,21 +25,21 @@ export const FeaturedProjectSection = () => {
             <div className={`space-y-4 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
               {/* Logo and Project Name */}
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-surface-dark border-2 border-indigo rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-surface-light border-2 border-indigo rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img
                     src="/soorena-logo.png"
                     alt="SOORENA Logo"
                     className="w-full h-full object-contain p-2"
                   />
                 </div>
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[hsl(var(--text-light-primary))]">
                   SOORENA
                 </h2>
               </div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium text-[hsl(var(--text-dark-secondary))]">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium text-[hsl(var(--text-light-secondary))]">
                 Autoregulatory Mechanism Detection in Biomedical Literature
               </h3>
-              <p className="text-base sm:text-lg text-[hsl(var(--text-dark-secondary))] leading-relaxed">
+              <p className="text-base sm:text-lg text-[hsl(var(--text-light-secondary))] leading-relaxed">
                 A two-stage PubMedBERT pipeline that automatically identifies and classifies protein
                 autoregulatory mechanisms. Resulted in a first-author preprint and a production-ready
                 Shiny application for researchers.
@@ -57,7 +57,7 @@ export const FeaturedProjectSection = () => {
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-indigo">
                     {metric.value}
                   </div>
-                  <div className="text-sm sm:text-base text-[hsl(var(--text-dark-secondary))]">
+                  <div className="text-sm sm:text-base text-[hsl(var(--text-light-secondary))]">
                     {metric.label}
                   </div>
                 </div>
@@ -105,7 +105,7 @@ export const FeaturedProjectSection = () => {
               {/* Glow */}
               <div className="absolute inset-0 bg-indigo/20 rounded-lg blur-2xl" />
               {/* Browser Mockup */}
-              <div className="relative bg-surface-dark rounded-lg overflow-hidden shadow-2xl border border-gray-800">
+              <div className="relative bg-surface-light rounded-lg overflow-hidden shadow-2xl border border-gray-200">
                 {/* Browser Chrome */}
                 <div className="bg-gray-900 px-4 py-3 flex items-center space-x-2 border-b border-gray-800">
                   <div className="flex space-x-2">
