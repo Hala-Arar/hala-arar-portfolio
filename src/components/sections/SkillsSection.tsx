@@ -54,7 +54,7 @@ export const SkillsSection = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-6 ${
+          className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-4 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
@@ -63,15 +63,15 @@ export const SkillsSection = () => {
 
         <div className="max-w-6xl mx-auto">
           {/* Primary Languages - Highlighted */}
-          <div className="mb-6">
+          <div className="mb-4">
             <p
-              className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-4 ${
+              className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-2 ${
                 isVisible ? 'animate-fade-up stagger-1' : 'opacity-0'
               }`}
             >
               Primary Languages
             </p>
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-8">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-5 mb-5">
               {primaryLanguages.map((skill, index) => (
                 <div
                   key={skill.name}
@@ -91,23 +91,23 @@ export const SkillsSection = () => {
           </div>
 
           {/* Categorized Skills */}
-          <div className="space-y-6">
+          <div className="space-y-3">
             {skillCategories.map((category, categoryIndex) => (
               <div key={category.title}>
                 <p
-                  className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-3 ${
+                  className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-2 ${
                     isVisible ? `animate-fade-up stagger-${categoryIndex + 5}` : 'opacity-0'
                   }`}
                 >
                   {category.title}
                 </p>
-                <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
                   {category.skills.map((skill, skillIndex) => {
                     const staggerClass = `stagger-${Math.min((skillIndex % 8) + 1, 8)}`;
                     return (
                       <div
                         key={skill.name}
-                        className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-surface-light border border-gray-200 rounded-full text-sm sm:text-base font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:glow-indigo ${
+                        className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:scale-105 hover:glow-indigo ${
                           isVisible ? `animate-float-in ${staggerClass}` : 'opacity-0'
                         }`}
                       >
