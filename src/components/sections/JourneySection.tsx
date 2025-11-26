@@ -61,7 +61,7 @@ const timeline: TimelineEntry[] = [
     role: "Lab Technician Assistant",
     company: "Trent University",
     location: "Peterborough, ON",
-    period: "Sep 2023 – Apr 2023",
+    period: "Sep 2022 – Apr 2023",
     description: "Prepared lab equipment, developed digital inventory systems, supported research operations",
     logo: "/logos/trent.png",
     isImage: true,
