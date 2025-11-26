@@ -194,7 +194,7 @@ export const JourneySection = () => {
           />
 
           {/* Timeline Entries */}
-          <div className="space-y-8 lg:space-y-10">
+          <div className="space-y-4 lg:space-y-6">
             {timeline.map((entry, index) => {
               return (
                 <div
