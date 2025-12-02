@@ -7,7 +7,6 @@ import { FeaturedProjectSection } from '@/components/sections/FeaturedProjectSec
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { JourneySection } from '@/components/sections/JourneySection';
 import { PublicationsSection } from '@/components/sections/PublicationsSection';
-import { BeyondTheCodeSection } from '@/components/sections/BeyondTheCodeSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
 const sections = [
@@ -17,7 +16,6 @@ const sections = [
   { id: 'journey', label: 'Journey' },
   { id: 'publications', label: 'Publications' },
   { id: 'skills', label: 'Skills' },
-  { id: 'beyond', label: 'Beyond' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -36,7 +34,6 @@ const Index = () => {
         <JourneySection />
         <PublicationsSection />
         <SkillsSection />
-        <BeyondTheCodeSection />
         <ContactSection />
       </main>
     </div>
