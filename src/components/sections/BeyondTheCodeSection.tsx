@@ -1,11 +1,18 @@
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import runPhoto from '@/assets/beyond/run.jpeg';
+import skiPhoto from '@/assets/beyond/ski.png';
+import petraPhoto from '@/assets/beyond/petra.jpg';
+import gradPhoto from '@/assets/beyond/grad.jpg';
+import conferencePhoto from '@/assets/beyond/conference.jpg';
+import birdPhoto from '@/assets/beyond/bird.jpg';
 
 const interests = [
-  { emoji: '🏃‍♀️', label: 'Running', placeholder: 'running-photo.jpg' },
-  { emoji: '🧁', label: 'Baking Cupcakes', placeholder: 'baking-photo.jpg' },
-  { emoji: '✍️', label: 'Creative Writing', placeholder: 'writing-photo.jpg' },
-  { emoji: '🌿', label: 'Environmental Advocacy', placeholder: 'environment-photo.jpg' },
-  { emoji: '🎮', label: 'Gaming', placeholder: 'gaming-photo.jpg' },
+  { emoji: '🏃‍♀️', label: 'First 10K Race', photo: runPhoto },
+  { emoji: '⛷️', label: 'Hitting the Slopes', photo: skiPhoto },
+  { emoji: '🏺', label: 'Exploring Jordan', photo: petraPhoto },
+  { emoji: '🎓', label: 'UBC Grad 2025', photo: gradPhoto },
+  { emoji: '🔬', label: 'Conference Season', photo: conferencePhoto },
+  { emoji: '🐦', label: 'Morning Chirps', photo: birdPhoto },
 ];
 
 export const BeyondTheCodeSection = () => {
@@ -19,45 +26,51 @@ export const BeyondTheCodeSection = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-white mb-12 ${
+          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-white mb-4 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
           Beyond the Code
         </h2>
+        <p
+          className={`text-center text-[hsl(var(--text-dark-secondary))] mb-12 text-lg ${
+            isVisible ? 'animate-fade-up stagger-1' : 'opacity-0'
+          }`}
+        >
+          When I'm not analyzing data
+        </p>
 
         {/* Horizontal Scroll Container */}
         <div className="relative">
           <div
             className={`flex gap-6 overflow-x-auto pb-6 scrollbar-hide ${
-              isVisible ? 'animate-fade-up stagger-1' : 'opacity-0'
+              isVisible ? 'animate-fade-up stagger-2' : 'opacity-0'
             }`}
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
             }}
           >
-            {interests.map((interest, index) => (
+            {interests.map((interest) => (
               <div
                 key={interest.label}
-                className="flex-shrink-0 w-72 sm:w-80"
+                className="flex-shrink-0 w-[300px] sm:w-[320px]"
               >
-                <div className="group relative bg-surface-dark border border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-indigo hover:shadow-xl hover:-translate-y-2 hover:glow-indigo">
-                  {/* Photo Placeholder */}
-                  <div className="aspect-[4/3] bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative overflow-hidden">
-                    <div className="text-8xl opacity-20">{interest.emoji}</div>
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                      <p className="text-white text-sm font-medium px-4 py-2 bg-indigo rounded-lg">
-                        Add {interest.placeholder}
-                      </p>
-                    </div>
+                <div className="group relative bg-surface-dark border border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-indigo hover:shadow-xl hover:-translate-y-2 hover:glow-indigo h-[400px]">
+                  {/* Photo */}
+                  <div className="h-[320px] overflow-hidden">
+                    <img
+                      src={interest.photo}
+                      alt={interest.label}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
                   
                   {/* Label */}
-                  <div className="p-6">
+                  <div className="p-4 bg-surface-dark">
                     <div className="flex items-center gap-3">
-                      <span className="text-3xl">{interest.emoji}</span>
-                      <h3 className="text-lg font-bold text-white group-hover:text-indigo transition-colors">
+                      <span className="text-2xl">{interest.emoji}</span>
+                      <h3 className="text-base font-bold text-white group-hover:text-indigo transition-colors">
                         {interest.label}
                       </h3>
                     </div>
