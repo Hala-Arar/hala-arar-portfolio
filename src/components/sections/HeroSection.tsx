@@ -1,7 +1,7 @@
 import { Mail, Github, Linkedin, Download, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import portraitImage from '@/assets/grad2.png';
+import portraitImage from '@/assets/grad3-cropped.jpg';
 
 export const HeroSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.3 });
@@ -17,20 +17,20 @@ export const HeroSection = () => {
     <section
       id="hero"
       ref={ref}
-      className="min-h-screen flex items-center justify-center bg-section-dark gradient-mesh relative overflow-hidden"
+      className="min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-section-dark gradient-mesh relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
           {/* Photo - 40% - Shows first on mobile, right on desktop */}
           <div className={`lg:col-span-2 flex justify-center lg:order-2 ${isVisible ? 'animate-scale-in stagger-2' : 'opacity-0'}`}>
-            <div className="relative">
+            <div className="relative max-h-[400px] lg:max-h-[500px]">
               {/* Glow background */}
               <div className="absolute inset-0 bg-indigo/30 rounded-2xl blur-3xl scale-110" />
               {/* Photo */}
               <img
                 src={portraitImage}
                 alt="Hala Arar"
-                className="relative rounded-2xl shadow-2xl w-full max-w-md transition-smooth hover:scale-105"
+                className="relative rounded-2xl shadow-2xl w-full max-w-md max-h-[400px] lg:max-h-[500px] object-cover transition-smooth hover:scale-105"
                 style={{ transform: 'perspective(1000px) rotateY(0deg)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'perspective(1000px) rotateY(5deg)';
