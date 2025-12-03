@@ -15,8 +15,8 @@ export const ContactSection = () => {
         <div className="max-w-3xl mx-auto text-center space-y-12">
           {/* Headline */}
           <div className={`space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
-              Let's Connect
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white">
+              Let's Build Something Together
             </h2>
             <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto">
               Open to data science opportunities, research collaborations, and interesting
