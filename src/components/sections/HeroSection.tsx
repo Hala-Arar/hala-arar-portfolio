@@ -19,22 +19,19 @@ export const HeroSection = () => {
       ref={ref}
       className="min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-section-dark gradient-mesh relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 lg:pt-16 lg:pb-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-16 lg:pb-16">
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
           {/* Photo - 40% - Shows first on mobile, right on desktop */}
           <div className={`lg:col-span-2 flex justify-center items-center order-2 lg:order-2 ${isVisible ? 'animate-scale-in stagger-2' : 'opacity-0'}`}>
             <div className="relative max-h-[400px] lg:max-h-[500px]">
               {/* Glow background */}
               <div className="absolute inset-0 bg-indigo/30 rounded-2xl blur-3xl scale-110" />
-              {/* Photo with soft shadow */}
+              {/* Photo */}
               <img
                 src={portraitImage}
                 alt="Hala Arar"
-                className="relative rounded-2xl w-full max-w-md max-h-[400px] lg:max-h-[500px] object-cover transition-smooth hover:scale-105"
-                style={{ 
-                  transform: 'perspective(1000px) rotateY(0deg)',
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 12px 24px -8px rgba(0, 0, 0, 0.3)'
-                }}
+                className="relative rounded-2xl shadow-2xl w-full max-w-md max-h-[400px] lg:max-h-[500px] object-cover transition-smooth hover:scale-105"
+                style={{ transform: 'perspective(1000px) rotateY(0deg)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'perspective(1000px) rotateY(5deg)';
                 }}
@@ -52,24 +49,15 @@ export const HeroSection = () => {
                 HALA ARAR
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-[hsl(var(--text-dark-secondary))] font-medium">
-                Data Scientist focused on ML, NLP, and scalable end-to-end pipelines
+                Data Scientist · ML & NLP · End-to-End Pipelines
               </p>
-              {/* Desktop subtext */}
-              <p className="hidden sm:block text-base sm:text-lg text-[hsl(var(--text-dark-secondary))] max-w-2xl leading-relaxed">
-                I build intelligent machine learning systems that transform complex text into clear, usable insights.
-              </p>
-              {/* Mobile subtext - shorter version */}
-              <p className="sm:hidden text-base text-[hsl(var(--text-dark-secondary))] max-w-2xl leading-relaxed">
-                I build machine learning systems that turn complex text into clear insights.
-              </p>
-              {/* Impact statement */}
-              <p className="text-sm sm:text-base text-[hsl(var(--text-dark-secondary))]/70 max-w-2xl leading-relaxed">
-                Built production-ready NLP pipelines for large-scale text analysis, including models evaluated on over 2 million abstracts.
+              <p className="text-base sm:text-lg text-[hsl(var(--text-dark-secondary))] max-w-2xl leading-relaxed">
+                Building intelligent systems that extract meaning from scientific literature and clinical data.
               </p>
             </div>
 
-            {/* Contact Icons - centered on mobile */}
-            <div className={`flex space-x-6 justify-center sm:justify-start ${isVisible ? 'animate-fade-up stagger-3' : 'opacity-0'}`}>
+            {/* Contact Icons */}
+            <div className={`flex space-x-6 ${isVisible ? 'animate-fade-up stagger-3' : 'opacity-0'}`}>
               <a
                 href="mailto:hala.arar.02@gmail.com"
                 className="text-white hover:text-indigo transition-smooth"
@@ -109,7 +97,7 @@ export const HeroSection = () => {
               </Button>
               <Button
                 size="lg"
-                className="bg-indigo text-white hover:bg-indigo/90 shadow-lg shadow-indigo/25 transition-smooth text-base"
+                className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth text-base"
                 asChild
               >
                 <a href="/Hala_Arar_Resume.pdf" target="_blank" rel="noopener noreferrer">
