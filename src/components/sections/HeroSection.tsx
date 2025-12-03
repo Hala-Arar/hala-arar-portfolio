@@ -19,18 +19,18 @@ export const HeroSection = () => {
       ref={ref}
       className="min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-section-dark gradient-mesh relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-16 lg:pb-16">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-8 lg:pt-16 lg:pb-16">
+        <div className="grid lg:grid-cols-5 gap-4 md:gap-6 lg:gap-12 items-center">
           {/* Photo - 40% - Shows first on mobile, right on desktop */}
           <div className={`lg:col-span-2 flex justify-center items-center order-2 lg:order-2 ${isVisible ? 'animate-scale-in stagger-2' : 'opacity-0'}`}>
-            <div className="relative max-h-[400px] lg:max-h-[500px]">
+            <div className="relative max-h-[280px] md:max-h-[320px] lg:max-h-[500px]">
               {/* Glow background */}
               <div className="absolute inset-0 bg-indigo/30 rounded-2xl blur-3xl scale-110" />
               {/* Photo */}
               <img
                 src={portraitImage}
                 alt="Hala Arar"
-                className="relative rounded-2xl shadow-2xl w-full max-w-md max-h-[400px] lg:max-h-[500px] object-cover transition-smooth hover:scale-105"
+                className="relative rounded-2xl shadow-2xl w-full max-w-[240px] md:max-w-xs lg:max-w-md max-h-[280px] md:max-h-[320px] lg:max-h-[500px] object-cover transition-smooth hover:scale-105"
                 style={{ transform: 'perspective(1000px) rotateY(0deg)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'perspective(1000px) rotateY(5deg)';
@@ -43,8 +43,8 @@ export const HeroSection = () => {
           </div>
 
           {/* Text Content - 60% */}
-          <div className="lg:col-span-3 order-1 lg:order-1 space-y-8">
-            <div className={`space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+          <div className="lg:col-span-3 order-1 lg:order-1 space-y-4 md:space-y-6 lg:space-y-8">
+            <div className={`space-y-3 md:space-y-4 lg:space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
                 HALA ARAR
               </h1>
@@ -86,18 +86,18 @@ export const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className={`flex flex-col sm:flex-row gap-4 ${isVisible ? 'animate-fade-up stagger-4' : 'opacity-0'}`}>
+            <div className={`flex flex-col sm:flex-row gap-3 md:gap-4 ${isVisible ? 'animate-fade-up stagger-4' : 'opacity-0'}`}>
               <Button
                 onClick={scrollToSkills}
                 size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-section-dark transition-smooth text-base"
+                className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth text-base"
               >
                 View My Work
                 <ArrowDown className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
-                className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth text-base"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-section-dark transition-smooth text-base"
                 asChild
               >
                 <a href="/Hala_Arar_Resume.pdf" target="_blank" rel="noopener noreferrer">
