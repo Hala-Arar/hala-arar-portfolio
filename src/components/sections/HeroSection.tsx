@@ -19,18 +19,18 @@ export const HeroSection = () => {
       ref={ref}
       className="min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-section-dark gradient-mesh relative overflow-hidden"
     >
-      <div className="container mx-auto px-3 sm:px-6 lg:px-8 pt-20 pb-8 lg:pt-16 lg:pb-16">
-        <div className="grid lg:grid-cols-5 gap-6 lg:gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-16 lg:pb-16">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
           {/* Photo - 40% - Shows first on mobile, right on desktop */}
           <div className={`lg:col-span-2 flex justify-center items-center order-2 lg:order-2 ${isVisible ? 'animate-scale-in stagger-2' : 'opacity-0'}`}>
-            <div className="relative max-h-[280px] md:max-h-[320px] lg:max-h-[500px]">
+            <div className="relative max-h-[400px] lg:max-h-[500px]">
               {/* Glow background */}
               <div className="absolute inset-0 bg-indigo/30 rounded-2xl blur-3xl scale-110" />
               {/* Photo */}
               <img
                 src={portraitImage}
                 alt="Hala Arar"
-                className="relative rounded-2xl shadow-2xl w-full max-w-xs md:max-w-sm lg:max-w-md max-h-[280px] md:max-h-[320px] lg:max-h-[500px] object-cover transition-smooth hover:scale-105"
+                className="relative rounded-2xl shadow-2xl w-full max-w-md max-h-[400px] lg:max-h-[500px] object-cover transition-smooth hover:scale-105"
                 style={{ transform: 'perspective(1000px) rotateY(0deg)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'perspective(1000px) rotateY(5deg)';
@@ -43,31 +43,16 @@ export const HeroSection = () => {
           </div>
 
           {/* Text Content - 60% */}
-          <div className="lg:col-span-3 order-1 lg:order-1 space-y-4 lg:space-y-8">
-            <div className={`space-y-4 lg:space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+          <div className="lg:col-span-3 order-1 lg:order-1 space-y-8">
+            <div className={`space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
                 HALA ARAR
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-[hsl(var(--text-dark-secondary))] font-medium">
                 Data Scientist · ML & NLP · End-to-End Pipelines
               </p>
-              <div className="space-y-3 lg:space-y-4 max-w-2xl">
-                <p className="text-base sm:text-lg text-[hsl(var(--text-dark-secondary))] leading-relaxed">
-                  I build intelligent NLP systems at the intersection of data science and life sciences—extracting insights from complex scientific text and clinical data.
-                </p>
-                <p className="text-base sm:text-lg text-[hsl(var(--text-dark-secondary))] leading-relaxed">
-                  Unique combination: biomedical domain expertise + production ML engineering.
-                </p>
-                <p className="text-base sm:text-lg text-[hsl(var(--text-dark-secondary))] leading-relaxed">
-                  Built pipelines processing 2M+ abstracts with 96% accuracy. Translating cutting-edge research into scalable, business-ready solutions.
-                </p>
-              </div>
-            </div>
-
-            {/* Open to Opportunities */}
-            <div className={`${isVisible ? 'animate-fade-up stagger-2' : 'opacity-0'}`}>
-              <p className="text-sm text-gray-400">
-                Open to opportunities | Available for hire
+              <p className="text-base sm:text-lg text-[hsl(var(--text-dark-secondary))] max-w-2xl leading-relaxed">
+                Building intelligent systems that extract meaning from scientific literature and clinical data.
               </p>
             </div>
 
@@ -101,18 +86,18 @@ export const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className={`flex flex-col sm:flex-row gap-3 lg:gap-4 ${isVisible ? 'animate-fade-up stagger-4' : 'opacity-0'}`}>
+            <div className={`flex flex-col sm:flex-row gap-4 ${isVisible ? 'animate-fade-up stagger-4' : 'opacity-0'}`}>
               <Button
                 onClick={scrollToSkills}
                 size="lg"
-                className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth text-base"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-section-dark transition-smooth text-base"
               >
                 View My Work
                 <ArrowDown className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-section-dark transition-smooth text-base"
+                className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth text-base"
                 asChild
               >
                 <a href="/Hala_Arar_Resume.pdf" target="_blank" rel="noopener noreferrer">
