@@ -135,14 +135,20 @@ export const JourneySection = () => {
 
         {/* Timeline */}
         <div className="max-w-5xl mx-auto relative">
-          {/* Vertical Line */}
+          {/* Mobile Vertical Line - left aligned */}
+          <div
+            className="lg:hidden absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo via-indigo/50 to-indigo"
+            style={{ boxShadow: "0 0 12px rgba(99, 102, 241, 0.4)" }}
+          />
+          
+          {/* Desktop Vertical Line - center aligned */}
           <div
             className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo via-indigo/50 to-indigo -translate-x-1/2 shadow-lg"
             style={{ boxShadow: "0 0 20px rgba(99, 102, 241, 0.5)" }}
           />
 
           {/* Timeline Entries */}
-          <div className="space-y-2 lg:space-y-3">
+          <div className="space-y-6 lg:space-y-3">
             {timeline.map((entry, index) => {
               return (
                 <div
@@ -150,15 +156,51 @@ export const JourneySection = () => {
                   data-timeline-card={index}
                   className={`relative ${visibleCards.has(index) ? "animate-slide-in-fade" : "opacity-0"}`}
                 >
-                  {/* Connection dot on timeline */}
+                  {/* Desktop connection dot on timeline */}
                   <div
                     className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-indigo shadow-lg z-10"
                     style={{ boxShadow: "0 0 10px rgba(99, 102, 241, 0.6)" }}
                   />
 
+                  {/* MOBILE LAYOUT - simple left-aligned timeline */}
+                  <div className="flex lg:hidden items-start gap-4 pl-0">
+                    {/* Logo on timeline line */}
+                    <div
+                      className={`w-12 h-12 rounded-full border-2 border-indigo flex items-center justify-center flex-shrink-0 overflow-hidden bg-white z-10 ${entry.isImage ? "" : "text-xl"}`}
+                    >
+                      {entry.isImage ? (
+                        <img
+                          src={entry.logo}
+                          alt={`${entry.company} logo`}
+                          className={`w-full h-full ${entry.useContain ? "object-contain p-1.5" : "object-cover"}`}
+                          style={{
+                            transform: `scale(${entry.logoScale || 1.5}) translateX(${entry.logoOffsetX || "0"})`,
+                          }}
+                        />
+                      ) : (
+                        entry.logo
+                      )}
+                    </div>
+
+                    {/* Card to the right */}
+                    <div className="flex-1 bg-surface-light border border-gray-200 rounded-xl p-3 hover:border-indigo transition-smooth">
+                      <h3 className="text-base font-bold text-[hsl(var(--text-light-primary))] mb-0.5">{entry.role}</h3>
+                      <div className="text-indigo font-semibold text-sm mb-0.5">{entry.company}</div>
+                      <div className="text-xs text-[hsl(var(--text-light-secondary))] mb-1">{entry.period}</div>
+                      <div className="flex items-center gap-1 text-xs text-[hsl(var(--text-light-secondary))] mb-1.5">
+                        <MapPin size={12} />
+                        <span>{entry.location}</span>
+                      </div>
+                      <p className="text-xs text-[hsl(var(--text-light-secondary))] leading-snug">
+                        {entry.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* DESKTOP LAYOUT - zigzag alternating */}
                   {entry.side === "left" ? (
                     // LEFT SIDE ENTRY: Logo on left, card on right of center
-                    <div className="grid lg:grid-cols-[auto_1fr] gap-6 lg:gap-8 items-center lg:pr-[calc(50%+3rem)]">
+                    <div className="hidden lg:grid lg:grid-cols-[auto_1fr] gap-8 items-center lg:pr-[calc(50%+3rem)]">
                       {/* Logo on LEFT side */}
                       <div
                         className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? "" : "text-4xl sm:text-5xl"}`}
@@ -193,7 +235,7 @@ export const JourneySection = () => {
                     </div>
                   ) : (
                     // RIGHT SIDE ENTRY: Card on left of center, logo on right
-                    <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-8 items-center lg:pl-[calc(50%+3rem)]">
+                    <div className="hidden lg:grid lg:grid-cols-[1fr_auto] gap-8 items-center lg:pl-[calc(50%+3rem)]">
                       {/* Card content */}
                       <div className="bg-surface-light border border-gray-200 rounded-xl p-4 hover:border-indigo transition-smooth hover:glow-indigo">
                         <h3 className="text-xl font-bold text-[hsl(var(--text-light-primary))] mb-0.5">{entry.role}</h3>
