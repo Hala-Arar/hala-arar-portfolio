@@ -1,7 +1,7 @@
 import { Mail, Github, Linkedin, Download, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import portraitImage from '@/assets/hala-portrait.jpg';
+import portraitImage from '@/assets/grad2.png';
 
 export const HeroSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.3 });
