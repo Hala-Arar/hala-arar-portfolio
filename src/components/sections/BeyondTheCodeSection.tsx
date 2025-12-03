@@ -1,5 +1,5 @@
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import runPhoto from '@/assets/beyond/run.jpeg';
+import grad2Photo from '@/assets/beyond/grad2.png';
 import skiPhoto from '@/assets/beyond/ski.png';
 import petraPhoto from '@/assets/beyond/petra.jpg';
 import gradPhoto from '@/assets/beyond/grad.jpg';
@@ -7,7 +7,7 @@ import conferencePhoto from '@/assets/beyond/conference.jpg';
 import birdPhoto from '@/assets/beyond/bird.jpg';
 
 const interests = [
-  { emoji: '🏃‍♀️', label: 'First 10K Race', photo: runPhoto },
+  { emoji: '🎓', label: 'UBC Grad 2025', photo: grad2Photo },
   { emoji: '⛷️', label: 'Hitting the Slopes', photo: skiPhoto },
   { emoji: '🏺', label: 'Exploring Jordan', photo: petraPhoto },
   { emoji: '🎓', label: 'UBC Grad 2025', photo: gradPhoto },
