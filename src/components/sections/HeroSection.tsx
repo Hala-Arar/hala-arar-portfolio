@@ -19,10 +19,10 @@ export const HeroSection = () => {
       ref={ref}
       className="min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-section-dark gradient-mesh relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-16 lg:pb-16">
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
           {/* Photo - 40% - Shows first on mobile, right on desktop */}
-          <div className={`lg:col-span-2 flex justify-center lg:order-2 ${isVisible ? 'animate-scale-in stagger-2' : 'opacity-0'}`}>
+          <div className={`lg:col-span-2 flex justify-center items-center order-2 lg:order-2 ${isVisible ? 'animate-scale-in stagger-2' : 'opacity-0'}`}>
             <div className="relative max-h-[400px] lg:max-h-[500px]">
               {/* Glow background */}
               <div className="absolute inset-0 bg-indigo/30 rounded-2xl blur-3xl scale-110" />
@@ -43,7 +43,7 @@ export const HeroSection = () => {
           </div>
 
           {/* Text Content - 60% */}
-          <div className="lg:col-span-3 lg:order-1 space-y-8">
+          <div className="lg:col-span-3 order-1 lg:order-1 space-y-8">
             <div className={`space-y-6 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
                 HALA ARAR
