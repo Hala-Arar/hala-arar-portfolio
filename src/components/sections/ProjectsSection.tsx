@@ -81,7 +81,7 @@ const projects: Project[] = [
     fullDescription:
       "Built and optimized machine learning models to predict customer conversion for bank marketing campaigns. Achieved a 20% improvement in precision through feature engineering, hyperparameter tuning, and ensemble methods.",
     tech: ["Python", "scikit-learn", "Feature Engineering"],
-    githubUrl: "https://github.com/halaarar",
+    githubUrl: "https://github.com/mindy001/FeatureSelection",
     icon: TrendingUp,
   },
   {
