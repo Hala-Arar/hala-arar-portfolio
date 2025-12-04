@@ -6,10 +6,10 @@ import portraitImage from '@/assets/grad4.jpg';
 export const HeroSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.3 });
 
-  const scrollToSkills = () => {
-    const skillsSection = document.getElementById('skills');
-    if (skillsSection) {
-      skillsSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToFeaturedProject = () => {
+    const featuredSection = document.getElementById('soorena');
+    if (featuredSection) {
+      featuredSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -88,7 +88,7 @@ export const HeroSection = () => {
             {/* CTA Buttons */}
             <div className={`flex flex-col sm:flex-row gap-3 md:gap-4 ${isVisible ? 'animate-fade-up stagger-4' : 'opacity-0'}`}>
               <Button
-                onClick={scrollToSkills}
+                onClick={scrollToFeaturedProject}
                 size="lg"
                 className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth text-base"
               >
