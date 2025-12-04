@@ -71,7 +71,7 @@ export const MinimalNav = ({ activeSection }: MinimalNavProps) => {
                 className="border-indigo text-indigo hover:bg-indigo hover:text-white glow-indigo"
                 asChild
               >
-                <a href="/Hala_Arar_Resume.pdf" download="Hala_Arar_Resume.pdf">
+                <a href={`${import.meta.env.BASE_URL}Hala_Arar_Resume.pdf`} download="Hala_Arar_Resume.pdf">
                   <Download className="mr-2 h-4 w-4" />
                   Resume
                 </a>
@@ -112,7 +112,7 @@ export const MinimalNav = ({ activeSection }: MinimalNavProps) => {
             className="border-indigo text-indigo hover:bg-indigo hover:text-white glow-indigo"
             asChild
           >
-            <a href="/Hala_Arar_Resume.pdf" download="Hala_Arar_Resume.pdf">
+            <a href={`${import.meta.env.BASE_URL}Hala_Arar_Resume.pdf`} download="Hala_Arar_Resume.pdf">
               <Download className="mr-2 h-5 w-5" />
               Download Resume
             </a>

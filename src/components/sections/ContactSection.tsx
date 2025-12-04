@@ -82,7 +82,7 @@ export const ContactSection = () => {
               className="bg-indigo text-white hover:bg-indigo/90 glow-indigo-strong transition-smooth"
               asChild
             >
-              <a href="/Hala_Arar_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href={`${import.meta.env.BASE_URL}Hala_Arar_Resume.pdf`} target="_blank" rel="noopener noreferrer">
                 <Download className="mr-2 h-5 w-5" />
                 View Resume
               </a>

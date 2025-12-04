@@ -27,7 +27,7 @@ export const FeaturedProjectSection = () => {
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 bg-surface-light border-2 border-indigo rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <img
-                    src="/soorena-logo.png"
+                    src={`${import.meta.env.BASE_URL}soorena-logo.png`}
                     alt="SOORENA Logo"
                     className="w-full h-full object-contain p-2"
                   />
@@ -120,7 +120,7 @@ export const FeaturedProjectSection = () => {
                 {/* Screenshot */}
                 <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center overflow-hidden">
                   <img
-                    src="/soorena-screenshot.png"
+                    src={`${import.meta.env.BASE_URL}soorena-screenshot.png`}
                     alt="SOORENA Shiny App Interface"
                     className="w-full h-full object-contain"
                   />

@@ -100,7 +100,7 @@ export const HeroSection = () => {
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-section-dark transition-smooth text-base"
                 asChild
               >
-                <a href="/Hala_Arar_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href={`${import.meta.env.BASE_URL}Hala_Arar_Resume.pdf`} target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-5 w-5" />
                   View Resume
                 </a>

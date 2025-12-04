@@ -90,7 +90,7 @@ const projects: Project[] = [
     fullDescription:
       "Led a self-directed experimental study investigating the antibacterial properties of honey and tea tree oil. Designed the full experimental workflow, performed bacterial culture and CFU counting, and conducted statistical analysis in R using linear models and ANOVA.",
     tech: ["R", "Experimental Design", "ANOVA", "Statistics"],
-    pdfUrl: "/natural_antibiotics_report.pdf",
+    pdfUrl: `${import.meta.env.BASE_URL}natural_antibiotics_report.pdf`,
     icon: Beaker,
   },
   {
