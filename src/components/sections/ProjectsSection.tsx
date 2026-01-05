@@ -6,12 +6,11 @@ import {
   X,
   Dna,
   BarChart3,
-  Terminal,
   TrendingUp,
   Beaker,
   LucideIcon,
   Construction,
-  HardHat,
+  FileText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -28,15 +27,6 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
-    title: "Construction Safety PWA",
-    description: "Offline-first app with AI transcription & regulation matching",
-    fullDescription:
-      "Built an offline-first Progressive Web App for construction site safety observations using React, TypeScript, and IndexedDB. Workers can record audio notes and capture photos without internet connectivity. Integrated OpenAI Whisper for automatic transcription and Claude API for intelligent safety regulation matching through custom n8n automation workflows. Implemented queue-based sync with retry logic and RAG-based document retrieval for Green Book regulations.",
-    tech: ["React", "TypeScript", "IndexedDB", "PWA", "n8n", "Whisper API", "Claude API", "RAG"],
-    workInProgress: true,
-    icon: HardHat,
-  },
   {
     title: "ACMG Gene Variant Classification",
     description: "XGBoost and LLM models for clinical variant classification",
@@ -56,15 +46,6 @@ const projects: Project[] = [
     icon: BarChart3,
   },
   {
-    title: "LLM CLI",
-    description: "Command-line tool for structured LLM responses",
-    fullDescription:
-      "Designed a lightweight CLI interface for interacting with Large Language Models, featuring modular prompts, structured output validation with Pydantic, citation tracking, and seamless integration for practical workflows.",
-    tech: ["Python", "OpenAI API", "Pydantic", "CLI"],
-    githubUrl: "https://github.com/halaarar/gander-llm-cli",
-    icon: Terminal,
-  },
-  {
     title: "Bank Marketing Predictions",
     description: "ML models with 20% precision improvement",
     fullDescription:
@@ -82,25 +63,25 @@ const projects: Project[] = [
     pdfUrl: `${import.meta.env.BASE_URL}natural_antibiotics_report.pdf`,
     icon: Beaker,
   },
-  ];
+];
 
 export const ProjectsSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" ref={ref} className="min-h-screen flex items-center justify-center bg-section-dark py-20">
+    <section id="projects" ref={ref} className="min-h-screen flex items-center justify-center bg-section-light py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
           <h2
-            className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 ${
+            className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-[hsl(var(--text-light-primary))] mb-4 ${
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
             More Projects
           </h2>
           <p
-            className={`text-lg text-[hsl(var(--text-dark-secondary))] ${
+            className={`text-lg text-[hsl(var(--text-light-secondary))] ${
               isVisible ? "animate-fade-up stagger-1" : "opacity-0"
             }`}
           >
@@ -109,33 +90,33 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Project Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {projects.map((project, index) => {
             const staggerClass = `stagger-${Math.min((index % 8) + 1, 8)}`;
             return (
               <button
                 key={project.title}
                 onClick={() => setSelectedProject(project)}
-                className={`group bg-white/5 backdrop-blur-sm border border-white/10 shadow-lg shadow-black/20 rounded-xl p-6 text-left transition-all duration-300 hover:bg-white/10 hover:border-indigo hover:shadow-xl hover:-translate-y-2 hover:glow-indigo hover:rotate-1 ${
+                className={`group bg-surface-light border border-gray-200 shadow-lg rounded-xl p-6 text-left transition-all duration-300 hover:border-indigo hover:shadow-xl hover:-translate-y-2 hover:glow-indigo hover:rotate-1 ${
                   isVisible ? `animate-float-in ${staggerClass}` : "opacity-0"
                 }`}
               >
                 <project.icon className="w-10 h-10 mb-4 text-indigo" strokeWidth={1.5} />
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo transition-colors">
+                <h3 className="text-lg font-bold text-[hsl(var(--text-light-primary))] mb-2 group-hover:text-indigo transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm text-[hsl(var(--text-dark-secondary))] mb-4">{project.description}</p>
+                <p className="text-sm text-[hsl(var(--text-light-secondary))] mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs px-2 py-1 bg-white/10 text-[hsl(var(--text-dark-secondary))] rounded"
+                      className="text-xs px-2 py-1 bg-gray-100 text-[hsl(var(--text-light-secondary))] rounded"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className="text-xs px-2 py-1 bg-white/10 text-[hsl(var(--text-dark-secondary))] rounded">
+                    <span className="text-xs px-2 py-1 bg-gray-100 text-[hsl(var(--text-light-secondary))] rounded">
                       +{project.tech.length - 3}
                     </span>
                   )}
@@ -153,7 +134,7 @@ export const ProjectsSection = () => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="bg-gray-900/95 backdrop-blur-xl rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-modal-slide-up border border-white/10"
+            className="bg-white backdrop-blur-xl rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-modal-slide-up border border-gray-200"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6 sm:p-8">
@@ -167,11 +148,11 @@ export const ProjectsSection = () => {
                       <span className="text-sm font-semibold text-yellow-500">Work in Progress</span>
                     </div>
                   )}
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">{selectedProject.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[hsl(var(--text-light-primary))]">{selectedProject.title}</h3>
                 </div>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="text-[hsl(var(--text-dark-secondary))] hover:text-white transition-colors"
+                  className="text-[hsl(var(--text-light-secondary))] hover:text-[hsl(var(--text-light-primary))] transition-colors"
                   aria-label="Close modal"
                 >
                   <X size={24} />
@@ -179,18 +160,18 @@ export const ProjectsSection = () => {
               </div>
 
               {/* Content */}
-              <p className="text-base text-[hsl(var(--text-dark-secondary))] mb-6 leading-relaxed">
+              <p className="text-base text-[hsl(var(--text-light-secondary))] mb-6 leading-relaxed">
                 {selectedProject.fullDescription}
               </p>
 
               {/* Tech Stack */}
               <div className="mb-6">
-                <h4 className="text-sm font-semibold text-[hsl(var(--text-dark-secondary))] uppercase tracking-wider mb-3">
+                <h4 className="text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-3">
                   Tech Stack
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.tech.map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-white/10 text-white text-sm rounded-full">
+                    <span key={tech} className="px-3 py-1 bg-gray-100 text-[hsl(var(--text-light-primary))] text-sm rounded-full">
                       {tech}
                     </span>
                   ))}
@@ -204,13 +185,13 @@ export const ProjectsSection = () => {
                     <div className="space-y-2 w-full">
                       <Button
                         variant="outline"
-                        className="border-gray-600 text-gray-500 cursor-not-allowed opacity-60"
+                        className="border-gray-300 text-gray-500 cursor-not-allowed opacity-60"
                         disabled
                       >
                         <Construction className="mr-2 h-4 w-4" />
                         Coming Soon
                       </Button>
-                      <p className="text-sm text-[hsl(var(--text-dark-secondary))] italic">
+                      <p className="text-sm text-[hsl(var(--text-light-secondary))] italic">
                         This project is currently under development
                       </p>
                     </div>

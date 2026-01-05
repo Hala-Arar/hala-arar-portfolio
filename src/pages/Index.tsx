@@ -4,6 +4,7 @@ import { SectionDots } from '@/components/navigation/SectionDots';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
 import { FeaturedProjectSection } from '@/components/sections/FeaturedProjectSection';
+import { FeaturedPWASection } from '@/components/sections/FeaturedPWASection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { JourneySection } from '@/components/sections/JourneySection';
 import { PublicationsSection } from '@/components/sections/PublicationsSection';
@@ -13,6 +14,7 @@ import { ContactSection } from '@/components/sections/ContactSection';
 const sections = [
   { id: 'hero', label: 'Home' },
   { id: 'soorena', label: 'SOORENA' },
+  { id: 'safety-pwa', label: 'Safety PWA' },
   { id: 'projects', label: 'Projects' },
   { id: 'journey', label: 'Journey' },
   { id: 'publications', label: 'Publications' },
@@ -32,6 +34,7 @@ const Index = () => {
       <main className="scroll-smooth">
         <HeroSection />
         <FeaturedProjectSection />
+        <FeaturedPWASection />
         <ProjectsSection />
         <JourneySection />
         <PublicationsSection />
