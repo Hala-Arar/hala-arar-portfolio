@@ -7,13 +7,11 @@ import {
   Dna,
   BarChart3,
   Terminal,
-  FileText,
-  Calculator,
   TrendingUp,
   Beaker,
-  BookOpen,
   LucideIcon,
   Construction,
+  HardHat,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -30,6 +28,15 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "Construction Safety PWA",
+    description: "Offline-first app with AI transcription & regulation matching",
+    fullDescription:
+      "Built an offline-first Progressive Web App for construction site safety observations using React, TypeScript, and IndexedDB. Workers can record audio notes and capture photos without internet connectivity. Integrated OpenAI Whisper for automatic transcription and Claude API for intelligent safety regulation matching through custom n8n automation workflows. Implemented queue-based sync with retry logic and RAG-based document retrieval for Green Book regulations.",
+    tech: ["React", "TypeScript", "IndexedDB", "PWA", "n8n", "Whisper API", "Claude API", "RAG"],
+    workInProgress: true,
+    icon: HardHat,
+  },
   {
     title: "ACMG Gene Variant Classification",
     description: "XGBoost and LLM models for clinical variant classification",
@@ -58,24 +65,6 @@ const projects: Project[] = [
     icon: Terminal,
   },
   {
-    title: "Lab Results Parser",
-    description: "PyQt5 GUI app for parsing lab PDFs",
-    fullDescription:
-      "Created a user-friendly desktop application to parse laboratory results from PDF files into structured, searchable data. Includes standalone packaging for distribution to non-technical users in clinical settings.",
-    tech: ["Python", "PyQt5", "PDF Parsing", "GUI"],
-    githubUrl: "https://github.com/halaarar/lab-results-parser",
-    icon: FileText,
-  },
-  {
-    title: "Health Science Calculator",
-    description: "Python package for health metrics calculation",
-    fullDescription:
-      "Developed a validated Python package for calculating common health science metrics including TDEE, BMR, and BMI. Built with comprehensive test coverage and industry-standard formulas for accuracy.",
-    tech: ["Python", "pytest", "Package Development"],
-    githubUrl: "https://github.com/UBC-MDS/HealthScienceCalculator",
-    icon: Calculator,
-  },
-  {
     title: "Bank Marketing Predictions",
     description: "ML models with 20% precision improvement",
     fullDescription:
@@ -93,16 +82,7 @@ const projects: Project[] = [
     pdfUrl: `${import.meta.env.BASE_URL}natural_antibiotics_report.pdf`,
     icon: Beaker,
   },
-  {
-    title: "Data Science Starter Kit Blog",
-    description: "Educational content on Git and version control",
-    fullDescription:
-      "Created a beginner-friendly educational blog introducing fundamental concepts in version control, Git workflows, branching strategies, and collaboration best practices. Includes video demonstrations and hands-on tutorials.",
-    tech: ["Markdown", "Git", "Technical Writing"],
-    githubUrl: "https://github.com/halaarar/Data-Science-Starter-Kit-Blog",
-    icon: BookOpen,
-  },
-];
+  ];
 
 export const ProjectsSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.1 });

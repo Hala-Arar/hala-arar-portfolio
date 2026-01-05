@@ -6,7 +6,7 @@ export const FeaturedProjectSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.2 });
 
   const metrics = [
-    { value: '252,880+', label: 'Abstracts Processed' },
+    { value: '3.8M+', label: 'Abstracts Processed' },
     { value: '96.0%', label: 'Detection Accuracy' },
     { value: '96.2%', label: 'Macro-F1 Score' },
     { value: '7', label: 'Mechanism Classes' },
@@ -40,8 +40,8 @@ export const FeaturedProjectSection = () => {
                 Autoregulatory Mechanism Detection in Biomedical Literature
               </h3>
               <p className="text-base sm:text-lg text-[hsl(var(--text-light-secondary))] leading-relaxed">
-                A two-stage PubMedBERT pipeline that automatically identifies and classifies protein
-                autoregulatory mechanisms. Resulted in a first-author preprint and a production-ready
+                A two-stage PubMedBERT pipeline with a SQL database backend that automatically identifies and classifies protein
+                autoregulatory mechanisms and their polarity. Resulted in a first-author preprint and a production-ready
                 Shiny application for researchers.
               </p>
             </div>
@@ -94,6 +94,16 @@ export const FeaturedProjectSection = () => {
                   Publication
                 </a>
               </Button>
+              <Button
+                variant="outline"
+                className="border-indigo text-indigo hover:bg-indigo hover:text-white"
+                asChild
+              >
+                <a href="http://143.198.38.37:3838/soorena/" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  Live Demo
+                </a>
+              </Button>
             </div>
           </div>
 
@@ -114,7 +124,7 @@ export const FeaturedProjectSection = () => {
                     <div className="w-3 h-3 rounded-full bg-green-500" />
                   </div>
                   <div className="flex-1 bg-gray-800 rounded px-3 py-1 text-xs text-gray-400">
-                    soorena-app.shinyapps.io
+                    soorena.halaarar.com
                   </div>
                 </div>
                 {/* Screenshot */}

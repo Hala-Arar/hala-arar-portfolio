@@ -14,24 +14,39 @@ interface TimelineEntry {
   logoScale?: number;
   useContain?: boolean;
   logoOffsetX?: string;
+  logoBg?: string;
 }
 
 const timeline: TimelineEntry[] = [
   {
     side: "right",
+    role: "AI Developer (Contract)",
+    company: "Framework AI",
+    location: "Toronto, ON (Remote)",
+    period: "Jun 2025 – Present",
+    description:
+      "Built offline-first PWA for construction safety with AI transcription (Whisper) and regulation matching (Claude). Developed RAG pipelines and n8n automation workflows.",
+    logo: `${import.meta.env.BASE_URL}logos/framework.png`,
+    isImage: true,
+    logoScale: 1.0,
+    useContain: true,
+    logoBg: "#2563EB",
+  },
+  {
+    side: "left",
     role: "Data Science Intern",
     company: "University of Helsinki",
     location: "Helsinki, Finland (Remote)",
     period: "April 2025 – Present",
     description:
-      "Built PubMedBERT pipeline for SOORENA, processed 250K+ abstracts, developed Shiny app for researchers",
+      "Built PubMedBERT pipeline for SOORENA, processed 3.8M+ abstracts, developed Shiny app for researchers",
     logo: `${import.meta.env.BASE_URL}logos/helsinki-logo.png`,
     isImage: true,
     logoScale: 0.9,
     logoOffsetX: "9%",
   },
   {
-    side: "left",
+    side: "right",
     role: "Data Scientist – Research",
     company: "University of British Columbia",
     location: "Vancouver, BC",
@@ -44,7 +59,7 @@ const timeline: TimelineEntry[] = [
     logoOffsetX: "3%",
   },
   {
-    side: "right",
+    side: "left",
     role: "Dental Assistant",
     company: "Park Street Dentistry",
     location: "Peterborough, ON",
@@ -57,7 +72,7 @@ const timeline: TimelineEntry[] = [
     logoOffsetX: "3%",
   },
   {
-    side: "left",
+    side: "right",
     role: "Lab Technician Assistant",
     company: "Trent University",
     location: "Peterborough, ON",
@@ -166,7 +181,8 @@ export const JourneySection = () => {
                   <div className="flex lg:hidden items-start gap-4 pl-0">
                     {/* Logo on timeline line */}
                     <div
-                      className={`w-12 h-12 rounded-full border-2 border-indigo flex items-center justify-center flex-shrink-0 overflow-hidden bg-white z-10 ${entry.isImage ? "" : "text-xl"}`}
+                      className={`w-12 h-12 rounded-full border-2 border-indigo flex items-center justify-center flex-shrink-0 overflow-hidden z-10 ${entry.isImage ? "" : "text-xl"}`}
+                      style={{ backgroundColor: entry.logoBg || "white" }}
                     >
                       {entry.isImage ? (
                         <img
@@ -203,7 +219,8 @@ export const JourneySection = () => {
                     <div className="hidden lg:grid lg:grid-cols-[auto_1fr] gap-8 items-center lg:pr-[calc(50%+3rem)]">
                       {/* Logo on LEFT side */}
                       <div
-                        className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? "" : "text-4xl sm:text-5xl"}`}
+                        className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden ${entry.isImage ? "" : "text-4xl sm:text-5xl"}`}
+                        style={{ backgroundColor: entry.logoBg || "white" }}
                       >
                         {entry.isImage ? (
                           <img
@@ -252,7 +269,8 @@ export const JourneySection = () => {
 
                       {/* Logo on RIGHT side */}
                       <div
-                        className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden bg-white ${entry.isImage ? "" : "text-4xl sm:text-5xl"}`}
+                        className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-indigo flex items-center justify-center glow-indigo-strong transition-transform duration-300 hover:scale-110 flex-shrink-0 overflow-hidden ${entry.isImage ? "" : "text-4xl sm:text-5xl"}`}
+                        style={{ backgroundColor: entry.logoBg || "white" }}
                       >
                         {entry.isImage ? (
                           <img
