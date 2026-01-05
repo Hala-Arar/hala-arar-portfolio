@@ -22,18 +22,18 @@ export const BeyondTheCodeSection = () => {
     <section
       id="beyond"
       ref={ref}
-      className="py-20 bg-section-dark overflow-hidden"
+      className="py-20 bg-section-light overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-white mb-4 ${
+          className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-4 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
           Beyond the Code
         </h2>
         <p
-          className={`text-center text-[hsl(var(--text-dark-secondary))] mb-12 text-lg ${
+          className={`text-center text-[hsl(var(--text-light-secondary))] mb-12 text-lg ${
             isVisible ? 'animate-fade-up stagger-1' : 'opacity-0'
           }`}
         >
@@ -56,7 +56,7 @@ export const BeyondTheCodeSection = () => {
                 key={interest.label}
                 className="flex-shrink-0 w-[300px] sm:w-[320px]"
               >
-                <div className="group relative bg-surface-dark border border-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-indigo hover:shadow-xl hover:-translate-y-2 hover:glow-indigo h-[400px]">
+                <div className="group relative bg-surface-light border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-indigo hover:shadow-xl hover:-translate-y-2 hover:glow-indigo h-[400px]">
                   {/* Photo */}
                   <div className="h-[320px] overflow-hidden">
                     <img
@@ -67,10 +67,10 @@ export const BeyondTheCodeSection = () => {
                   </div>
                   
                   {/* Label */}
-                  <div className="p-4 bg-surface-dark">
+                  <div className="p-4 bg-surface-light">
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{interest.emoji}</span>
-                      <h3 className="text-base font-bold text-white group-hover:text-indigo transition-colors">
+                      <h3 className="text-base font-bold text-[hsl(var(--text-light-primary))] group-hover:text-indigo transition-colors">
                         {interest.label}
                       </h3>
                     </div>
@@ -82,7 +82,7 @@ export const BeyondTheCodeSection = () => {
 
           {/* Scroll Hint */}
           <div className="text-center mt-6">
-            <p className="text-sm text-[hsl(var(--text-dark-secondary))] flex items-center justify-center gap-2">
+            <p className="text-sm text-[hsl(var(--text-light-secondary))] flex items-center justify-center gap-2">
               <span>←</span>
               Scroll to explore
               <span>→</span>

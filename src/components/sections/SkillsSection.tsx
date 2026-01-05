@@ -39,11 +39,11 @@ export const SkillsSection = () => {
     <section
       id="skills"
       ref={ref}
-      className="flex items-center justify-center bg-section-light py-12"
+      className="flex items-center justify-center bg-section-dark py-12"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[hsl(var(--text-light-primary))] mb-4 ${
+          className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-white mb-4 ${
             isVisible ? 'animate-fade-up' : 'opacity-0'
           }`}
         >
@@ -54,7 +54,7 @@ export const SkillsSection = () => {
           {/* Primary Languages - Highlighted */}
           <div className="mb-4">
             <p
-              className={`text-center text-sm font-semibold text-[hsl(var(--text-light-secondary))] uppercase tracking-wider mb-2 ${
+              className={`text-center text-sm font-semibold text-[hsl(var(--text-dark-secondary))] uppercase tracking-wider mb-2 ${
                 isVisible ? 'animate-fade-up stagger-1' : 'opacity-0'
               }`}
             >
@@ -68,10 +68,10 @@ export const SkillsSection = () => {
                     isVisible ? `animate-float-in stagger-${index + 2}` : 'opacity-0'
                   }`}
                 >
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-surface-light border-2 border-indigo rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:glow-indigo">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center bg-surface-dark border-2 border-indigo rounded-2xl p-3 sm:p-4 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:glow-indigo">
                     <img src={skill.icon} alt={`${skill.name} logo`} className="w-full h-full object-contain" />
                   </div>
-                  <span className="text-base sm:text-lg font-bold text-[hsl(var(--text-light-primary))] group-hover:text-indigo transition-colors">
+                  <span className="text-base sm:text-lg font-bold text-white group-hover:text-indigo transition-colors">
                     {skill.name}
                   </span>
                 </div>
@@ -86,7 +86,7 @@ export const SkillsSection = () => {
               {skillsRow1.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-dark border border-gray-800 rounded-full text-sm font-medium text-white transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
                     isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
@@ -101,7 +101,7 @@ export const SkillsSection = () => {
               {skillsRow2.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-dark border border-gray-800 rounded-full text-sm font-medium text-white transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
                     isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
@@ -116,7 +116,7 @@ export const SkillsSection = () => {
               {skillsRow3.map((skill) => (
                 <div
                   key={skill.name}
-                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-light border border-gray-200 rounded-full text-sm font-medium text-[hsl(var(--text-light-primary))] transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-surface-dark border border-gray-800 rounded-full text-sm font-medium text-white transition-all duration-300 hover:border-indigo hover:-translate-y-1 hover:shadow-lg ${
                     isVisible ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
