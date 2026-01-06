@@ -1,4 +1,4 @@
-import { HardHat, Construction } from 'lucide-react';
+import { Construction } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
@@ -33,15 +33,16 @@ export const FeaturedPWASection = () => {
                   />
                 </div>
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
-                  Safety PWA
+                  AI Safety Reports
                 </h2>
               </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-medium text-[hsl(var(--text-dark-secondary))]">
-                Offline-First Construction Safety Application
+                Voice-to-Compliance Construction Safety App
               </h3>
               <p className="text-base sm:text-lg text-[hsl(var(--text-dark-secondary))] leading-relaxed">
-                Built an offline-first Progressive Web App for construction site safety observations using React, TypeScript, and IndexedDB. 
-                Features AI-powered audio transcription via Whisper and intelligent safety regulation matching through Claude API with custom n8n automation workflows.
+                Built an offline-first PWA that transforms voice recordings into structured safety observations.
+                Workers speak naturally on-site — Whisper transcribes their audio, then Claude matches observations against the Canadian Greenbook regulations using RAG.
+                Works fully offline with IndexedDB sync.
               </p>
             </div>
 
@@ -103,17 +104,13 @@ export const FeaturedPWASection = () => {
                     safety-pwa.framework.ai
                   </div>
                 </div>
-                {/* Screenshot Placeholder */}
-                <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-8">
-                    <HardHat className="w-16 h-16 text-indigo mx-auto mb-4" strokeWidth={1.5} />
-                    <p className="text-[hsl(var(--text-dark-secondary))] text-lg">
-                      Screenshot Coming Soon
-                    </p>
-                    <p className="text-gray-500 text-sm mt-2">
-                      PWA interface preview
-                    </p>
-                  </div>
+                {/* Screenshot */}
+                <div className="aspect-video bg-gray-900 overflow-hidden">
+                  <img
+                    src={`${import.meta.env.BASE_URL}safety-pwa-screenshot.png`}
+                    alt="AI Safety Reports - Observation detail with audio transcription and Greenbook compliance citations"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
             </div>
