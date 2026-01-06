@@ -4,32 +4,31 @@ const primaryLanguages = [
   { name: 'Python', icon: `${import.meta.env.BASE_URL}skills/python.svg` },
   { name: 'R', icon: `${import.meta.env.BASE_URL}skills/r.svg` },
   { name: 'SQL', icon: `${import.meta.env.BASE_URL}skills/sql.svg` },
+  { name: 'TypeScript', icon: `${import.meta.env.BASE_URL}skills/typescript.svg` },
 ];
 
-// Row 1: 5 skills
+// Row 1: ML/AI
 const skillsRow1 = [
   { name: 'PyTorch', icon: `${import.meta.env.BASE_URL}skills/pytorch.svg` },
-  { name: 'TensorFlow', icon: `${import.meta.env.BASE_URL}skills/tensorflow.svg` },
   { name: 'scikit-learn', icon: `${import.meta.env.BASE_URL}skills/sklearn.svg` },
   { name: 'Hugging Face', icon: `${import.meta.env.BASE_URL}skills/huggingface.svg` },
-  { name: 'PubMedBERT', icon: `${import.meta.env.BASE_URL}skills/pubmed.svg` },
+  { name: 'spaCy', icon: `${import.meta.env.BASE_URL}skills/spacy.svg` },
 ];
 
-// Row 2: 5 skills
+// Row 2: Data & Viz
 const skillsRow2 = [
-  { name: 'spaCy', icon: `${import.meta.env.BASE_URL}skills/spacy.svg` },
   { name: 'pandas', icon: `${import.meta.env.BASE_URL}skills/pandas.svg` },
   { name: 'NumPy', icon: `${import.meta.env.BASE_URL}skills/numpy.svg` },
   { name: 'Plotly', icon: `${import.meta.env.BASE_URL}skills/plotly.svg` },
-  { name: 'AWS', icon: `${import.meta.env.BASE_URL}skills/aws.svg` },
+  { name: 'React', icon: `${import.meta.env.BASE_URL}skills/react.svg` },
 ];
 
-// Row 3: 4 skills
+// Row 3: Cloud & DevOps
 const skillsRow3 = [
+  { name: 'AWS', icon: `${import.meta.env.BASE_URL}skills/aws.svg` },
   { name: 'Docker', icon: `${import.meta.env.BASE_URL}skills/docker.svg` },
   { name: 'Git', icon: `${import.meta.env.BASE_URL}skills/git.svg` },
   { name: 'GitHub Actions', icon: `${import.meta.env.BASE_URL}skills/github-actions.svg` },
-  { name: 'Bash', icon: `${import.meta.env.BASE_URL}skills/bash.svg` },
 ];
 
 export const SkillsSection = () => {
