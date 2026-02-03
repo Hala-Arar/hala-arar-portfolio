@@ -99,7 +99,7 @@ export const FeaturedProjectSection = () => {
                 className="border-indigo text-indigo hover:bg-indigo hover:text-white"
                 asChild
               >
-                <a href="http://143.198.38.37:3838/soorena/" target="_blank" rel="noopener noreferrer">
+                <a href="https://soorena.it.helsinki.fi/soorena/" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Live Demo
                 </a>
